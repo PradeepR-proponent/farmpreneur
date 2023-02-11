@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Farmpreneur",
+    "slug": "farmpreneur",
+    "scheme": "farmpreneur",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon2.png",
+    "splash": {
+      "image": "./src/assets/splashPag.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#0B5B80"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.igrow4himalayas"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon3.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.igrow4himalayas",
+      "versionCode": 9
+    },
+    "web": {
+      "favicon": "./src/assets/adaptive-icon3.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "74a059fe-8b35-49ab-97fe-d850d8eba149"
+      }
+    }
+  }
+}

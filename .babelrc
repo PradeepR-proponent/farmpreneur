@@ -1,0 +1,25 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src"
+                ],
+                "alias": {
+                    "srcroot": "./src",
+                    "components": "./src/components",
+                    "assets": "./src/assets",
+                    "slice": "./src/_slice",
+                    "store": "./src/_store",
+                    "screen": "./src/screen",
+                    "config": "./src/config",
+                    "navigation": "./src/navigations",
+                    "services": "./src/services",
+                    "helper": "./src/helper"
+                }
+            }
+        ],
+        "transform-inline-environment-variables"
+    ]
+}

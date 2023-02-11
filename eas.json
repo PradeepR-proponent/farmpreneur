@@ -4,9 +4,12 @@
   },
   "build": {
     "development": {
-      "developmentClient": false,
       "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
       "ios": {
+        "buildConfiguration": "Debug",
         "resourceClass": "m1-medium"
       }
     },

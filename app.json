@@ -19,14 +19,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.igrow4himalayas"
+      "bundleIdentifier": "com.farmpreneur"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon3.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.igrow4himalayas",
+      "package": "com.farmpreneur",
       "versionCode": 9
     },
     "web": {
@@ -34,7 +34,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "74a059fe-8b35-49ab-97fe-d850d8eba149"
+        "projectId": "c101eb69-bc40-472d-a73c-9a0c005ba7ca"
       }
     }
   }

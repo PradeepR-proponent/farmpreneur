@@ -69,6 +69,6 @@
     "expo-app-loading": "~2.0.0"
   },
   "private": true,
-  "name": "App",
+  "name": "farmpreneur",
   "version": "1.0.0"
 }

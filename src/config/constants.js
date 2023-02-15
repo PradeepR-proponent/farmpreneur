@@ -36,6 +36,6 @@ const appConstant = {
     aboutUrl: "https://farmpreneur.in/our-farm/",
     privacyUrl: "https://farmpreneur.in/privacy-policy/",
     termUrl: "https://farmpreneur.in/term-and-condition/",
-    rateUs: 'https://play.google.com/store/apps/details?id=com.igrow4himalayas'
+    rateUs: 'https://play.google.com/store/apps/details?id=com.farmpreneur'
 };
 export default appConstant;

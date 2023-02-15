@@ -43,6 +43,7 @@ const bankScreen = {
     // services screen
     "Weather Forcast": "मौसम पूर्वानुमान",
     "Hygrid Model": "हाइग्रिड मॉडल",
+    "Hybrid Model":"हाइब्रिड मॉडल",
     "Solar Technology": "सौर प्रौद्योगिकी",
     "Agro Equipment": "कृषि उपकरण",
     "Insurance / Policies": "बीमा / नीतियां",

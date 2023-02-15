@@ -39,6 +39,7 @@ const bankScreen = {
     "Pan Card": "Pan Card",
     "Cancel Cheque": "Cancel Cheque",
     // services screen
+    "Hybrid Model":"Hybrid Model",
     "Weather Forcast": "Weather Forcast",
     "Hygrid Model": "Hygrid Model",
     "Solar Technology": "Solar Technology",

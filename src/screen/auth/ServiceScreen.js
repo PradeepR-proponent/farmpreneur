@@ -68,7 +68,7 @@ const ServiceScreen = (props) => {
     {
       id: "2",
       icon: hybrid,
-      btnName: translate(appLanguage, "Hygrid Model"),
+      btnName: translate(appLanguage, "Hybrid Model"),
       onClick: () => props.navigation.navigate('OtherWebView', { uri: 'https://mnre.gov.in/' })
     },
 

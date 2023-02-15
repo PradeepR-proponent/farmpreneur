@@ -7,7 +7,7 @@ import Loader from "components/Loader";
 import { useToast } from "react-native-toast-notifications";
 import { AntDesign } from "@expo/vector-icons";
 import moment from 'moment';
-import AdminIcon from 'assets/icon.png';
+import AdminIcon from 'assets/icon2.png';
 import HTMLText from 'components/Text/HTMLText';
 
 

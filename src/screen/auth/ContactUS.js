@@ -105,8 +105,8 @@ const ContactUS = (props) => {
         <View style={styles.flexSection}>
           <Text style={styles.text}>{translate(appLanguage, "Web")}-</Text>
           <View>
-            <Pressable onPress={() => Linking.openURL("https://grow4himalayas.com/")}>
-              <Text style={styles.text}> www.grow4himalayas.com</Text>
+            <Pressable onPress={() => Linking.openURL("https://farmpreneur.in/")}>
+              <Text style={styles.text}> www.Farmpreneur.in</Text>
             </Pressable>
             <Pressable onPress={() => Linking.openURL("https://www.grow4himalayas.co.in")} >
               <Text style={styles.text}>www.grow4himalayas.co.in</Text>
@@ -114,9 +114,9 @@ const ContactUS = (props) => {
           </View>
         </View>
 
-        <Pressable onPress={() => Linking.openURL("mailto:grow4himalayas@gmail.com")}>
+        <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
           <Text style={styles.text}>
-            {translate(appLanguage, "Mail")}- grow4himalayas@gmail.com
+            {translate(appLanguage, "Mail")}- farmpreneur.club@gmail.com 
           </Text>
         </Pressable>
 
@@ -127,7 +127,7 @@ const ContactUS = (props) => {
           <Text style={styles.text} onPress={() => Linking.openURL("tel:+918265999909")} >{translate(appLanguage, "Business help")}: +91 8265999909 </Text>
         </Pressable>
 
-        <View style={{ display: "flex", flexDirection: "row" }}>
+        <View style={{ display: "flex", flexDirection: "row" ,marginTop:20}}>
           <Pressable style={styles.btn} onPress={() => props.navigation.navigate('Training')} >
             <Text style={[styles.text, styles.whiteText]}>{translate(appLanguage, "Training")}</Text>
           </Pressable>

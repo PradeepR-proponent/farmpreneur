@@ -307,6 +307,7 @@ export default function ProfileScreen(props) {
                         dataDetectorTypes={"phoneNumber"}
                         keyboardType={"numeric"}
                         disabled={true}
+                        editable={false}
                         onChangeText={(t) => setPrimaryMobile(t)}
                     />
                     <TextInput
@@ -334,6 +335,7 @@ export default function ProfileScreen(props) {
                                 label={translate(appLanguage, "ID No")}
                                 value={IDNo}
                                 onChangeText={(t) => setIDNo(t)}
+                                editable={false}
                             />
                             <TextInput
                                 label={translate(appLanguage, "Approved")}

@@ -3,7 +3,7 @@
     "name": "farmpreneur",
     "slug": "farmpreneur",
     "scheme": "farmpreneur",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "orientation": "portrait",
     "icon": "./src/assets/icon2.png",
     "splash": {
@@ -12,7 +12,8 @@
       "backgroundColor": "#0B5B80"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/c101eb69-bc40-472d-a73c-9a0c005ba7ca"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -27,7 +28,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.farmpreneur",
-      "versionCode": 12
+      "versionCode": 14
     },
     "web": {
       "favicon": "./src/assets/adaptive-icon3.png"
@@ -36,6 +37,9 @@
       "eas": {
         "projectId": "c101eb69-bc40-472d-a73c-9a0c005ba7ca"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

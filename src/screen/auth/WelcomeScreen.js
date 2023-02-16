@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     textArea:{
-paddingHorizontal:responsiveWidth(5),
+paddingHorizontal:responsiveWidth(8),
     },
     gradient:{
         display: "flex",
@@ -207,7 +207,7 @@ paddingHorizontal:responsiveWidth(5),
         height:responsiveScreenHeight(100)
     },
     btns: {
-        marginTop:responsiveHeight(3),
+        marginTop:responsiveHeight(4),
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -231,10 +231,10 @@ paddingHorizontal:responsiveWidth(5),
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-start",
-       paddingHorizontal:responsiveWidth(5),
+       paddingHorizontal:responsiveWidth(8),
     },
     logo: {
-        marginTop:responsiveHeight(3),
+        marginTop:responsiveHeight(4),
         width: "25%",
         height: responsiveHeight(10),
         resizeMode: "contain",

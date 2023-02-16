@@ -31,7 +31,14 @@ import agro from "../../assets/images/agro.png";
 import { translate } from '../../languageFeature'
 import { useSelector } from "react-redux";
 import { getBanner } from '../../services/banner'
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveScreenFontSize,
 
+} from "react-native-responsive-dimensions";
 
 import { ALWAYS } from "expo-secure-store";
 
@@ -108,7 +115,7 @@ const ServiceScreen = (props) => {
   }, [])
 
   return (
-    <>
+  <ScrollView>
       <SafeAreaView>
         <View style={styles.sliderWrapper}>
           <Carousel
@@ -135,7 +142,7 @@ const ServiceScreen = (props) => {
               height: windowHeight,
             }}
           >
-            <View style={{ ...styles.cardConainer, width: windowWidth }}>
+            <View style={{ ...styles.cardConainer}}>
               {btnData.map((data) => (
                 <Pressable onPress={data.onClick} key={data.id}>
                   <View style={styles.iconContainer}>
@@ -149,7 +156,7 @@ const ServiceScreen = (props) => {
           </View>
         </ImageBackground>
       </View>
-    </>
+  </ScrollView>
   );
 };
 
@@ -189,6 +196,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    height:responsiveHeight(80)
   },
   overlay: {
     backgroundColor: "rgba(11,91,128,0.7)",

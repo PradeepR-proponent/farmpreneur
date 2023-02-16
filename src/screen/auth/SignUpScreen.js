@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
 import fontsLoaded from "config/fonts";

@@ -184,9 +184,9 @@ const WelcomeScreen = (props) => {
                             </View>
                         </View>
                         <View style={styles.imageWrapper}>
-                            <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img2.png')} />
                         </View>
+                        <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
                     </View>
                 </LinearGradient>
             </SafeAreaView >
@@ -198,13 +198,13 @@ const styles = StyleSheet.create({
     contactBtn: {
         position: "absolute",
         right: -45,
-        top: -40,
+        bottom: 150,
         zIndex: 50,
         backgroundColor: "#ffffff",
         color: "#0e5d82",
         fontWeight: "bold",
         fontSize: 16,
-        paddingHorizontal: 15,
+        paddingHorizontal: 20,
         paddingVertical: 7,
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
@@ -239,16 +239,15 @@ const styles = StyleSheet.create({
     viewArea: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        position:"relative"
+        justifyContent: "center",
+        position: "relative",
     },
 
     logoWrapper: {
-        width:responsiveWidth(100),
-        position:"absolute",
-        top:0,
-        left:0,
-        marginTop: responsiveHeight(1),
+        width: responsiveWidth(100),
+        position: "absolute",
+        top: responsiveHeight(1),
+        left: 0,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -297,7 +296,7 @@ const styles = StyleSheet.create({
     },
     loginBtnWrapper: {
         alignItems: "center",
-        marginBottom:responsiveHeight(1)
+        marginBottom: responsiveHeight(1)
     },
     loginBtnImg: {
         marginTop: responsiveHeight(2),
@@ -317,11 +316,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#0d6999"
     },
     imageWrapper: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
         height: responsiveHeight(18),
         flexDirection: "row",
         alignItems: "flex-start",
         backgroundColor: "#0d6999",
-        position: "relative"
     }
 });
 

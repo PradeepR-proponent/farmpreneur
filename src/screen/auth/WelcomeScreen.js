@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, useWindowDimensions, Pressable } from "react-native";
+import { Image, SafeAreaView,
+     StyleSheet, Text, View, TouchableOpacity, useWindowDimensions, Pressable } from "react-native";
+import {
+    responsiveHeight,
+    responsiveWidth,
+    responsiveScreenHeight,
+    responsiveScreenWidth,
+    responsiveScreenFontSize,
+ 
+  } from "react-native-responsive-dimensions";
 import { StatusBar } from "expo-status-bar";
 import fontsLoaded from "config/fonts";
 import { Button } from 'react-native-paper';
@@ -27,7 +36,6 @@ const WelcomeScreen = (props) => {
     const { signOut } = React.useContext(AuthContext);
     const [selectLang, setSelectLang] = useState("English")
     const [loading, setLoading] = React.useState(false);
-
 
     const getLang = async () => {
         const lang = await SecureStore.getItemAsync('appLang');
@@ -127,15 +135,15 @@ const WelcomeScreen = (props) => {
     } else {
         return (
 
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={[styles.container,{width:width,height:height}]}>
                 <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
                 <LinearGradient
                     colors={['#0b5a7f', '#0d6999']}
-                    style={[styles.linearGradient,]}
+                    style={styles.gradient}
                     start={{ x: 0.1, y: 0.4 }}
                     end={{ x: 0.1, y: 0.6 }}
                 >
-                    <View style={[styles.viewArea, { width: "100%", height: "100%" }]} >
+                    <View style={[styles.viewArea, { width: responsiveWidth(100), height:responsiveHeight(100) }]} >
                         <View style={styles.logoWrapper}>
                             <Image style={styles.logo} source={require('../../assets/logo/Mobile/Logo_W_PNG.png')} />
                             <View style={styles.btns} >
@@ -143,13 +151,13 @@ const WelcomeScreen = (props) => {
                                 <Pressable onPress={handleHindi} style={[styles.btn, { backgroundColor: selectLang === "Hindi" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "Hindi" ? "#ffffff" : "#0B5B80" }} >हिंदी</Text></Pressable>
                             </View>
                         </View>
-                        <View style={styles.contentWrapper}>
-                            <View style={styles.textWrapperMain}>
+                        <View style={styles.textArea} >
+                            <View >
                                 <Text style={[styles.textItemMain, { fontSize:22,fontWeight:"700"}]}>{translate(appLanguage, "Welcome to")}</Text>
-                                <Text style={[styles.textItemMain, { fontSize:26,}]}> {translate(appLanguage, "FARMPRENEUR Club")} </Text>
+                                <Text style={[styles.textItemMain, { fontSize:26,}]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
                             </View>
                             <View style={styles.textWrapper}>
-                                <Text style={styles.textItem}> {translate(appLanguage, "Register")}</Text>
+                                <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
                             </View>
                             <View style={styles.btnWrapper}>
                                 {
@@ -170,7 +178,7 @@ const WelcomeScreen = (props) => {
                                 }
                                 <TouchableOpacity style={styles.loginBtnWrapper} onPress={() => props.navigation.navigate('SignIn')}>
                                     <Image style={styles.loginBtnImg} source={require('../../assets/icon/login-button.png')} />
-                                    <Text style={styles.loginBtnText}> {translate(appLanguage, "Login")}</Text>
+                                    <Text style={styles.loginBtnText}>{translate(appLanguage, "Login")}</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -188,8 +196,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    textArea:{
+paddingHorizontal:responsiveWidth(5),
+
+    },
+    gradient:{
+        display: "flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        width:responsiveScreenWidth(100),
+        height:responsiveScreenHeight(100)
+    },
     btns: {
-        marginTop: 20,
+        marginTop:responsiveHeight(1),
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -200,54 +219,41 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 2,
         borderColor: "#ffffff",
-        marginRight: 10
+        marginRight: 10,
     },
     viewArea: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
-    main: {
-        flex: 1,
-        backgroundColor: "#0B5B80"
-    },
-    linearGradient: {
-        width: "100%",
-        height: "100%"
-    },
+   
     logoWrapper: {
-        marginTop: 35,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+       paddingHorizontal:responsiveWidth(5),
     },
     logo: {
-        marginLeft: 40,
+        marginTop:responsiveHeight(3),
         width: "25%",
-        height: 80,
+        height: responsiveHeight(10),
         resizeMode: "contain",
-        marginTop: 40,
-    },
-    textWrapperMain: {
-        width: "80%",
-        marginHorizontal: 40,
-        marginBottom: 15
     },
     textWrapper: {
-        marginTop: 20,
-        marginBottom: 15
+        marginTop:responsiveHeight(3),
+        marginBottom: responsiveHeight(1)
     },
     textItem: {
         color: "white",
         textAlign: "center",
         fontFamily: appConstant.baseFontFamily,
-        fontSize: 16
+        fontSize: 16,
     },
     btnItem: {
         paddingHorizontal: 10,
         width: "50%",
-        marginBottom: 10,
+        marginBottom: responsiveHeight(1),
         borderRadius: 0,
         alignSelf: "center",
         borderRadius: 5
@@ -271,13 +277,12 @@ const styles = StyleSheet.create({
     },
     loginBtnWrapper: {
         alignItems: "center",
-        marginTop: 10,
     },
     loginBtnImg: {
-        width: 50,
-        height: 50,
+        marginTop:responsiveHeight(2),
+        width:responsiveHeight(7),
+        height:responsiveHeight(7),
         resizeMode: "contain",
-
     },
     loginBtnText: {
         color: "#fff",
@@ -291,7 +296,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#0d6999"
     },
     imageWrapper: {
-        height:140,
+        height:responsiveHeight(20),
         flexDirection: "row",
         alignItems: "flex-start",
         backgroundColor: "#0d6999",

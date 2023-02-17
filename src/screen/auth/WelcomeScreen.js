@@ -239,8 +239,9 @@ const styles = StyleSheet.create({
     viewArea: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         position: "relative",
+        paddingTop:responsiveHeight(1)
     },
 
     logoWrapper: {

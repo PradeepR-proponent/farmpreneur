@@ -9,6 +9,7 @@ import {
     responsiveScreenHeight,
     responsiveScreenWidth,
     responsiveScreenFontSize,
+    responsiveFontSize,
 
 } from "react-native-responsive-dimensions";
 import { StatusBar } from "expo-status-bar";
@@ -154,8 +155,8 @@ const WelcomeScreen = (props) => {
                         </View>
                         <View style={styles.textArea} >
                             <View >
-                                <Text style={[styles.textItemMain, { fontSize: 22, fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
-                                <Text style={[styles.textItemMain, { fontSize: 26, }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
+                                <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(3), fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
+                                <Text style={[styles.textItemMain, {fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
                             </View>
                             <View style={styles.textWrapper}>
                                 <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
@@ -204,8 +205,8 @@ const styles = StyleSheet.create({
         color: "#0e5d82",
         fontWeight: "bold",
         fontSize: 16,
-        paddingHorizontal: 20,
-        paddingVertical: 7,
+        paddingHorizontal: responsiveWidth(5),
+        paddingVertical: responsiveHeight(1),
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
         transform: [{ rotate: '-90deg' }],
@@ -278,7 +279,7 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     btnText: {
-        fontSize: 16,
+        fontSize: responsiveFontSize(2),
         fontWeight: "700",
         fontFamily: appConstant.baseFontFamily,
         textAlign: "center"

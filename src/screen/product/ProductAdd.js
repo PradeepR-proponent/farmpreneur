@@ -37,6 +37,7 @@ export default function ProductAdd(props) {
     const userdata = useSelector(userData);
     const { navigation } = props;
     const [product, setProduct] = useState();
+    const [category, setCategory] = useState();
 
     /**
      * Handling error modal
@@ -130,6 +131,7 @@ export default function ProductAdd(props) {
                             onValueChange={(val, idx) => {
                                 setProduct(val)
                                 setUnit(data?.data[idx - 1]?.unit)
+                                setCategory(data?.data[idx - 1]?.category_name)
                             }}
                             mode="dropdown"
                         >
@@ -161,6 +163,12 @@ export default function ProductAdd(props) {
                             value={unit}
                             disabled={true}
                             onChangeText={(t) => setUnit(t)}
+                        />
+                        <TextInput
+                            label={`${translate(appLanguage, "Category")}`}
+                            value={category}
+                            disabled={true}
+                            onChangeText={(t) => setCategory(t)}
                         />
 
                         {/* <Picker

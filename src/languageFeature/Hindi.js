@@ -24,7 +24,8 @@ const welcomeScreen = {
     "validation code": "सत्यापन कोड जो एसएमएस से मिलता है",
     "Didn't get code": "कोड नहीं मिला ",
     "Resend": "पुन: भेजें",
-    "Resend OTP in": " ओटीपी फिर से भेजें "
+    "Resend OTP in": " ओटीपी फिर से भेजें ",
+    "Category":"वर्ग"
 
 
 }

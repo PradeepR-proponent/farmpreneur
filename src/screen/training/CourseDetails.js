@@ -101,8 +101,6 @@ export default function CourseList(props) {
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>{translateAPI(appLanguage, course?.title, course?.title_hi)}</Text>
                         <Text style={styles.bracket}>( {translateAPI(appLanguage, course?.excerpt, course?.excerpt_hi)} )</Text>
-
-
                         <Text style={styles.cardPriceBtn}>₹ {course?.price}</Text>
                         <HTMLText style={styles.cardDesc} description={translateAPI(appLanguage, course?.description, course?.description_hi)} />
                         <View style={styles.cardExtra}>
@@ -206,7 +204,7 @@ const styles = StyleSheet.create({
         color: "#000",
         textAlign: "center",
         marginVertical: 10,
-        lineHeight: 20
+        lineHeight: 20,
     },
     cardExtra: {
         // marginTop: 20,

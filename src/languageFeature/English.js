@@ -24,7 +24,8 @@ const welcomeScreen = {
     "validation code": "The validation code that gets from SMS",
     "Didn't get code": "Didn't get code ",
     "Resend": "Resend ",
-    "Resend OTP in": "Resend OTP in "
+    "Resend OTP in": "Resend OTP in ",
+    "Category":"Category"
 }
 const bankScreen = {
     "Account Holder Name": "Account Holder Name",

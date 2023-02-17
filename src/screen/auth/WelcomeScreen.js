@@ -245,9 +245,9 @@ const styles = StyleSheet.create({
 
     logoWrapper: {
         width: responsiveWidth(100),
-        position: "absolute",
-        top: responsiveHeight(1),
-        left: 0,
+        // position: "absolute",
+        // top: responsiveHeight(1),
+        // left: 0,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     },
     overlayImg: {
         width:responsiveScreenWidth(100),
-        height: responsiveScreenHeight(20),
+        height: responsiveScreenHeight(18),
         resizeMode: "cover",
         backgroundColor: "#0d6999",
     },

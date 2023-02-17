@@ -16,7 +16,7 @@ const HTMLText = (props) => {
 
 const tagStyles = {
     p: {
-        fontSize: 18,
+        fontSize: 16,
         color: appConstant.textSecondaryColor,
         marginVertical: 10,
         lineHeight: 20,

@@ -175,7 +175,8 @@ const styles = StyleSheet.create({
     },
     cardContent: {
         padding: 20,
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+        
     },
     cardTitle: {
         fontSize: 20,
@@ -204,7 +205,7 @@ const styles = StyleSheet.create({
         color: "#000",
         textAlign: "center",
         marginVertical: 10,
-        lineHeight: 20,
+        paddingTop:10
     },
     cardExtra: {
         // marginTop: 20,

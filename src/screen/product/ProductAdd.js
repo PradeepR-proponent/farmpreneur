@@ -67,7 +67,6 @@ export default function ProductAdd(props) {
         return unsubscribe;
     }, [navigation]);
 
-    console.log(data)
 
     // useEffect(() => {
     //     if (query !== null) {

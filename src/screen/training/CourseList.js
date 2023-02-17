@@ -10,8 +10,6 @@ import InfoCard from "components/Card/InfoCard";
 import { translate, translateAPI } from '../../languageFeature'
 import { useSelector } from 'react-redux';
 
-
-
 export default function CourseList(props) {
 
     const { appLanguage } = useSelector(state => state.auth)
@@ -54,7 +52,7 @@ export default function CourseList(props) {
                 </View>
                 <View style={styles.itemDetails}>
                     <Text style={styles.itemTitle} numberOfLines={2}>{translateAPI(appLanguage, `${title}`, title_hi)}</Text>
-                    <Text style={styles.itemTags} numberOfLines={3} > {translateAPI(appLanguage, `${description}`, description_hi)}</Text>
+                    <Text style={styles.itemTags} numberOfLines={3} > {translateAPI(appLanguage, `${description}`,`${description_hi}`)}</Text>
                     {props.rating !== undefined && (<View style={styles.itemRating}>
                         {fetchRatings(props.rating)}
                     </View>)}
@@ -92,7 +90,7 @@ export default function CourseList(props) {
                             <Item seatNum={item?.seat_left}
                                 title_hi={item?.title_hi}
                                 title={item?.title}
-                                description_hi={item?.description_hi}
+                                description_hi={item?.excerpt_hi}
                                 description={item?.excerpt}
                                 price={item?.price} startDate={item?.start_date}
                                 image={{ uri: item?.course_image_url }} duration={item?.duration} handleClick={() => { handleProductClick(item?.id) }} />

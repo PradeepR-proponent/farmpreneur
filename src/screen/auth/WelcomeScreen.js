@@ -184,9 +184,8 @@ const WelcomeScreen = (props) => {
                                 </TouchableOpacity>
                             </View>
                         </View>
-                        <View style={styles.imageWrapper}>
+                      
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img2.png')} />
-                        </View>
                         <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
                     </View>
                 </LinearGradient>
@@ -240,7 +239,7 @@ const styles = StyleSheet.create({
     viewArea: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-end",
         position: "relative",
     },
 
@@ -311,20 +310,12 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     overlayImg: {
-        width: "100%",
-        height: '100%',
+        width:responsiveScreenWidth(100),
+        height: responsiveScreenHeight(20),
         resizeMode: "cover",
-        backgroundColor: "#0d6999"
-    },
-    imageWrapper: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        height: responsiveHeight(18),
-        flexDirection: "row",
-        alignItems: "flex-start",
         backgroundColor: "#0d6999",
-    }
+    },
+    
 });
 
 

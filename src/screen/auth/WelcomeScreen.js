@@ -241,7 +241,6 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "space-between",
         position: "relative",
-        paddingTop:responsiveHeight(1)
     },
 
     logoWrapper: {
@@ -254,6 +253,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "flex-start",
         paddingHorizontal: responsiveWidth(5),
+        marginTop:10
     },
     logo: {
         width: "25%",

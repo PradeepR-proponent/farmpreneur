@@ -145,49 +145,52 @@ const WelcomeScreen = (props) => {
                     start={{ x: 0.1, y: 0.4 }}
                     end={{ x: 0.1, y: 0.6 }}
                 >
-                    <View style={[styles.viewArea, { width: responsiveWidth(100), height: responsiveHeight(100) }]} >
-                        <View style={styles.logoWrapper}>
-                            <Image style={styles.logo} source={require('../../assets/logo/Mobile/Logo_W_PNG.png')} />
-                            <View style={styles.btns} >
-                                <Pressable onPress={handleEnglish} style={[styles.btn, { backgroundColor: selectLang === "English" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "English" ? "#ffffff" : "#0B5B80" }} >Eng</Text></Pressable>
-                                <Pressable onPress={handleHindi} style={[styles.btn, { backgroundColor: selectLang === "Hindi" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "Hindi" ? "#ffffff" : "#0B5B80" }} >हिंदी</Text></Pressable>
+                    <SafeAreaView style={styles.safeArea} >
+                        <View style={[styles.viewArea, { width: responsiveWidth(100), height: responsiveHeight(100) }]} >
+                            <View style={styles.logoWrapper}>
+                                <Image style={styles.logo} source={require('../../assets/logo/Mobile/Logo_W_PNG.png')} />
+                                <View style={styles.btns} >
+                                    <Pressable onPress={handleEnglish} style={[styles.btn, { backgroundColor: selectLang === "English" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "English" ? "#ffffff" : "#0B5B80" }} >Eng</Text></Pressable>
+                                    <Pressable onPress={handleHindi} style={[styles.btn, { backgroundColor: selectLang === "Hindi" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "Hindi" ? "#ffffff" : "#0B5B80" }} >हिंदी</Text></Pressable>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.textArea} >
-                            <View >
-                                <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(3), fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
-                                <Text style={[styles.textItemMain, {fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
+                            <View style={styles.textArea} >
+                                <View >
+                                    <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(3), fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
+                                    <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
+                                </View>
+                                <View style={styles.textWrapper}>
+                                    <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
+                                </View>
+                                <View style={styles.btnWrapper}>
+                                    {
+                                        flateListData.map((btnList) => (
+                                            <Button
+                                                key={btnList.id}
+                                                mode="contained"
+                                                uppercase={false}
+                                                style={{ ...styles.btnItem, backgroundColor: btnList.id === "1" || btnList.id === "2" ? "green" : "#fff", }}
+                                                labelStyle={{ ...styles.btnText, color: btnList.id === "1" || btnList.id === "2" ? "#fff" : appConstant.themeSecondaryColor, }}
+                                                onPress={btnList.btnClick}
+                                            >
+                                                <Text style={styles.btnText}>
+                                                    {btnList.btnName}
+                                                </Text>
+                                            </Button>
+                                        ))
+                                    }
+                                    <TouchableOpacity style={styles.loginBtnWrapper} onPress={() => props.navigation.navigate('SignIn')}>
+                                        <Image style={styles.loginBtnImg} source={require('../../assets/icon/login-button.png')} />
+                                        <Text style={styles.loginBtnText}>{translate(appLanguage, "Login")}</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                            <View style={styles.textWrapper}>
-                                <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
-                            </View>
-                            <View style={styles.btnWrapper}>
-                                {
-                                    flateListData.map((btnList) => (
-                                        <Button
-                                            key={btnList.id}
-                                            mode="contained"
-                                            uppercase={false}
-                                            style={{ ...styles.btnItem, backgroundColor: btnList.id === "1" || btnList.id === "2" ? "green" : "#fff", }}
-                                            labelStyle={{ ...styles.btnText, color: btnList.id === "1" || btnList.id === "2" ? "#fff" : appConstant.themeSecondaryColor, }}
-                                            onPress={btnList.btnClick}
-                                        >
-                                            <Text style={styles.btnText}>
-                                                {btnList.btnName}
-                                            </Text>
-                                        </Button>
-                                    ))
-                                }
-                                <TouchableOpacity style={styles.loginBtnWrapper} onPress={() => props.navigation.navigate('SignIn')}>
-                                    <Image style={styles.loginBtnImg} source={require('../../assets/icon/login-button.png')} />
-                                    <Text style={styles.loginBtnText}>{translate(appLanguage, "Login")}</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                      
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img2.png')} />
-                        <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
-                    </View>
+                            <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
+                        </View>
+
+                    </SafeAreaView>
+
                 </LinearGradient>
             </SafeAreaView >
         )
@@ -195,6 +198,9 @@ const WelcomeScreen = (props) => {
 }
 
 const styles = StyleSheet.create({
+    safeArea: {
+        marginTop: 10,
+    },
     contactBtn: {
         position: "absolute",
         right: -45,
@@ -253,7 +259,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "flex-start",
         paddingHorizontal: responsiveWidth(5),
-        marginTop:10
     },
     logo: {
         width: "25%",
@@ -311,12 +316,12 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     overlayImg: {
-        width:responsiveScreenWidth(100),
+        width: responsiveScreenWidth(100),
         height: responsiveScreenHeight(18),
         resizeMode: "cover",
         backgroundColor: "#0d6999",
     },
-    
+
 });
 
 

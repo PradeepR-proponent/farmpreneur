@@ -23,6 +23,7 @@
       "bundleIdentifier": "com.farmpreneur"
     },
     "android": {
+      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon3.png",
         "backgroundColor": "#FFFFFF"

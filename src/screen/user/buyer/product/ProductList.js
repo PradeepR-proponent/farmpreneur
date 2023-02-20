@@ -15,7 +15,7 @@ export default function ProductList({ navigation }) {
 
     const [products, setProducts] = React.useState([]);
     const [categories, setCategories] = React.useState([]);
-    const [selectedCategories, setSelectedCategories] = React.useState(categories[0]);
+    const [selectedCategories, setSelectedCategories] = React.useState("All");
     const toast = useToast();
 
     function handleProductClick(id) {
@@ -37,9 +37,8 @@ export default function ProductList({ navigation }) {
 
     React.useEffect(() => {
         setProducts(data?.data);
-
         if (data?.data) {
-            setCategories([...new Set(data?.data.map((p) => p.category_name))])
+            setCategories(["All",...new Set(data?.data.map((p) => p.category_name))])
         }
     }, [data]);
 
@@ -76,10 +75,21 @@ export default function ProductList({ navigation }) {
                                     image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
                             );
                         } else return null
-
-
                     }}
                 />
+                {selectedCategories === "All" && <FlatList
+                    keyExtractor={(item) => item.name}
+                    data={products}
+                    onRefresh={refetch}
+                    refreshing={loading}
+                    renderItem={({ item }) => {
+                        return (
+                            <Item name={item?.name} description={item?.description} price={item?.price}
+                                image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
+                        );
+
+                    }}
+                />}
             </View>
             {(loading || isFetching) && (<Loader visible={true} />)}
         </SafeAreaView>
@@ -93,9 +103,9 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         backgroundColor: "#fff",
-    }, 
+    },
     pickerWrapper: {
-        marginTop:20,
+        margin: 20,
         overflow: 'hidden',
         backgroundColor: appConstant.themePrimaryLightColor,
         borderRadius: 10,

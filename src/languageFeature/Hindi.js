@@ -144,7 +144,7 @@ const bankScreen = {
     'Order Items': 'ऑर्डर आइटम',
     "Phone *": "फोन *",
     "Subject *": "विषय *",
-    "Message *": "सबमिट करें",
+    "Message *": "संदेश *",
     "Submit": "सबमिट करें",
     "Material Enquiry": "सामग्री पूछताछ",
     "Minimum Price": "न्यूनतम मूल्य",

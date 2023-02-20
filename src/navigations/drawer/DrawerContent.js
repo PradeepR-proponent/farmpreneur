@@ -110,7 +110,7 @@ function DrawerContent(props) {
     // },
     {
       id: 2,
-      role: ["supplier"],
+      role: ["supplier","buyer"],
       mainLable: translate(appLanguage, "Sections"),
       subLable: [
 

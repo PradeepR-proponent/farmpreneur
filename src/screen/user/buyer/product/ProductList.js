@@ -6,10 +6,16 @@ import Item from "components/Product/Item";
 import { fetchAllProducts } from 'services/product';
 import Loader from "components/Loader";
 import { useToast } from "react-native-toast-notifications";
+import { Picker } from "@react-native-picker/picker";
+import { AntDesign } from "@expo/vector-icons";
+
+
 
 export default function ProductList({ navigation }) {
 
     const [products, setProducts] = React.useState([]);
+    const [categories, setCategories] = React.useState([]);
+    const [selectedCategories, setSelectedCategories] = React.useState(categories[0]);
     const toast = useToast();
 
     function handleProductClick(id) {
@@ -31,23 +37,47 @@ export default function ProductList({ navigation }) {
 
     React.useEffect(() => {
         setProducts(data?.data);
-    }, [data]);
 
+        if (data?.data) {
+            setCategories([...new Set(data?.data.map((p) => p.category_name))])
+        }
+    }, [data]);
 
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
+            <View style={[styles.pickerWrapper]}>
+                <Picker
+                    selectedValue={selectedCategories}
+                    style={[styles.picker]}
+                    itemStyle={styles.pickerItem}
+                    dropdownIconColor="#ffffff"
+                    onValueChange={(itemValue) =>
+                        setSelectedCategories(itemValue)
+                    }
+                >
+                    {categories.map((c) => <Picker.Item label={c} value={c} />)}
+                </Picker>
+                <View style={styles.pickerIcon}>
+                    <AntDesign name="downcircleo" size={24} color={appConstant.themePrimaryColor} />
+                </View>
+            </View>
             <View style={styles.main}>
+
                 <FlatList
                     keyExtractor={(item) => item.name}
                     data={products}
                     onRefresh={refetch}
                     refreshing={loading}
                     renderItem={({ item }) => {
-                        return (
-                            <Item name={item?.name} description={item?.description} price={item?.price}
-                                image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
-                        );
+                        if (selectedCategories === item.category_name) {
+                            return (
+                                <Item name={item?.name} description={item?.description} price={item?.price}
+                                    image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
+                            );
+                        } else return null
+
+
                     }}
                 />
             </View>
@@ -63,5 +93,24 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         backgroundColor: "#fff",
+    }, 
+    pickerWrapper: {
+        marginTop:20,
+        overflow: 'hidden',
+        backgroundColor: appConstant.themePrimaryLightColor,
+        borderRadius: 10,
+        padding: 0
     },
+    pickerIcon: {
+        position: "absolute",
+        top: 13,
+        right: 12,
+        bottom: 0
+    },
+    picker: {
+
+    },
+    pickerItem: {
+        fontWeight: "700",
+    }
 });

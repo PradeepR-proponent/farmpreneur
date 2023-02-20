@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "flex-start",
+        alignItems: "center",
         paddingHorizontal: responsiveWidth(5),
     },
     logo: {

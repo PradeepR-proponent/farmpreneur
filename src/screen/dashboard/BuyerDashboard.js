@@ -27,7 +27,7 @@ import InfoCard from "components/Card/InfoCard";
 import Dummy from "assets/icon/dummy.png";
 import { translate } from '../../languageFeature'
 import { useSelector } from 'react-redux';
-
+import iconsImage from "assets/icon/icons.png"
 
 export default function BuyerDashboard(props) {
 
@@ -117,6 +117,14 @@ export default function BuyerDashboard(props) {
                             loop={true}
                         />
                     </View>
+
+                    <View style={styles.iconsWrapper}>
+                        <Image
+                            source={iconsImage}
+                            style={styles.iconImage}
+                        />
+                    </View>
+
                     <View>
                         <ProductList navigation={props.navigation} />
                     </View>
@@ -177,6 +185,14 @@ export default function BuyerDashboard(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    iconImage: {
+        marginTop: 20
+    },
+    iconsWrapper: {
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: "center"
     },
     main: {
         flex: 1,

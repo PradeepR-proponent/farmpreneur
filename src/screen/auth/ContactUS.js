@@ -98,8 +98,7 @@ const ContactUS = (props) => {
           style={styles.icon}
         />
       ),
-      onclick: () => console.log("enter link ")
-        // Linking.openURL("https://in.pinterest.com/iGROWkamal/_created/"),
+      onclick: () => Linking.openURL("https://www.youtube.com/@farmpreneur"),
     },
   ];
 
@@ -220,4 +219,3 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
- 

@@ -178,8 +178,8 @@ export default function SupplierDashboard(props) {
                                 activeDotIndex={activeBannerSlide}
                                 containerStyle={{ backgroundColor: 'transparent', paddingVertical: 20, }}
                                 dotStyle={{
-                                    width: 10,
-                                    height: 10,
+                                    width: 8,
+                                    height: 8,
                                     borderRadius: 5,
                                     marginHorizontal: 8,
                                     backgroundColor: appConstant.themePrimaryColor
@@ -211,7 +211,9 @@ const styles = StyleSheet.create({
         color: appConstant.themeSecondaryColor,
         fontWeight: "700",
         fontSize: 19,
-        margin:20
+        padding:20,
+        paddingBottom:0,
+        backgroundColor:"#fbfbfb"
     },
     main: {
         flex: 1,
@@ -294,7 +296,7 @@ const styles = StyleSheet.create({
         fontFamily: appConstant.baseFontFamily
     },
     whatNewImg: {
-        height: 250,
+        height:200,
         width: "100%",
         resizeMode: "cover"
     },

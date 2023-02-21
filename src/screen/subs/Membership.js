@@ -40,7 +40,7 @@ export default function Membership(props) {
     const getMembership = () => {
         getLink({
             "purpose": "MEMBERSHIP-" + data?.data?.id + "-" + new Date().getTime(),
-            "amount": 10,
+            "amount": 365,
             "buyer_name": data?.data?.name,
             "phone": data?.data?.primary_phone,
             "user_id": data?.data?.id

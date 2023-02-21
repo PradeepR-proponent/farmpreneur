@@ -25,9 +25,8 @@ const welcomeScreen = {
     "Didn't get code": "कोड नहीं मिला ",
     "Resend": "पुन: भेजें",
     "Resend OTP in": " ओटीपी फिर से भेजें ",
-    "Category":"वर्ग"
-
-
+    "Category":"वर्ग",
+    "AGRO": "Agro Farmpreneur Solution Private Limited",
 }
 const bankScreen = {
     "Account Holder Name": "खाता धारक का नाम",
@@ -113,7 +112,7 @@ const bankScreen = {
     "Contact Number": "संपर्क नंबर",
     "Business help": "व्यावसायिक सहायता",
     "Social Platform": "सामाजिक मंच",
-    "OysterGano Trout Club": "ऑयस्टरगैनो ट्राउट क्लब",
+    "Farmpreneur Club": "कृषि उद्यमी क्लब",
     "Choose Language": "भाषा चुनें",
     "Products Details": "उत्पाद विवरण",
     // cart page 

@@ -114,8 +114,8 @@ export default function SupplierDashboard(props) {
                             itemWidth={windowWidth}
                             onSnapToItem={(index) => setActiveSlide(index)}
                             autoplay={true}
-                            autoplayInterval={2000}
-                            autoplayDelay={2000}
+                            autoplayInterval={4000}
+                            autoplayDelay={4000}
                             enableMomentum={false}
                             lockScrollWhileSnapping={true}
                             loop={true}

@@ -88,46 +88,62 @@ const ContactUS = (props) => {
       onclick: () =>
         Linking.openURL("https://in.pinterest.com/iGROWkamal/_created/"),
     },
+    {
+      id: "6",
+      icon: (
+        <AntDesign
+          name="youtube"
+          size={30}
+          color="#0b5b80"
+          style={styles.icon}
+        />
+      ),
+      onclick: () => console.log("enter link ")
+        // Linking.openURL("https://in.pinterest.com/iGROWkamal/_created/"),
+    },
   ];
 
   return (
-    <SafeAreaView
-      style={{ ...styles.container, width: windowWidth, height: windowHeight }}
-    >
+    <SafeAreaView style={{ ...styles.container, width: windowWidth, height: windowHeight }} >
       <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
       <View style={styles.textArea}>
         <Text style={styles.headingStyle}>
-          {translate(appLanguage, "Green Revolution 4 Organic World - Farmpreneur")}
+          {translate(appLanguage, "AGRO")}
         </Text>
       </View>
 
       <View style={styles.textArea}>
         <View style={styles.flexSection}>
-          <Text style={styles.text}>{translate(appLanguage, "Web")}-</Text>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Web")}- </Text>
           <View>
             <Pressable onPress={() => Linking.openURL("https://farmpreneur.in/")}>
-              <Text style={styles.text}> www.Farmpreneur.in</Text>
-            </Pressable>
-            <Pressable onPress={() => Linking.openURL("https://www.grow4himalayas.co.in")} >
-              <Text style={styles.text}>www.grow4himalayas.co.in</Text>
+              <Text style={styles.text}>www.farmpreneur.in</Text>
             </Pressable>
           </View>
         </View>
 
-        <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
-          <Text style={styles.text}>
-            {translate(appLanguage, "Mail")}- farmpreneur.club@gmail.com 
-          </Text>
-        </Pressable>
-
+        <View style={styles.flexSection}>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Mail")}- </Text>
+          <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
+            <Text style={styles.text}>
+              farmpreneur.club@gmail.com
+            </Text>
+          </Pressable>
+        </View>
       </View>
-      <View style={styles.textArea}>
-        <Text style={styles.headingStyle}>{translate(appLanguage, "Contact Number")} </Text>
-        <Pressable>
-          <Text style={styles.text} onPress={() => Linking.openURL("tel:+918265999909")} >{translate(appLanguage, "Business help")}: +91 8265999909 </Text>
-        </Pressable>
 
-        <View style={{ display: "flex", flexDirection: "row" ,marginTop:20}}>
+      <View style={styles.textArea}>
+        <Text style={styles.headingStyle}>{translate(appLanguage, "Contact Number")}</Text>
+        <View style={styles.flexSection}>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Business help")}: </Text>
+          <Pressable onPress={() => Linking.openURL("tel:+918265999909")} >
+            <Text style={styles.text}>
+              +91 8265999909
+            </Text>
+          </Pressable>
+        </View>
+
+        <View style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
           <Pressable style={styles.btn} onPress={() => props.navigation.navigate('Training')} >
             <Text style={[styles.text, styles.whiteText]}>{translate(appLanguage, "Training")}</Text>
           </Pressable>
@@ -135,12 +151,10 @@ const ContactUS = (props) => {
             <Text style={[styles.text, styles.whiteText]}>{translate(appLanguage, "Consultancy")}</Text>
           </Pressable>
         </View>
-
       </View>
 
       <View style={styles.textArea}>
         <Text style={styles.headingStyle}>{translate(appLanguage, "Social Platform")}:</Text>
-
         <View style={styles.flexSection}>
           {linkData.map((data) => (
             <Pressable key={data.id} onPress={data.onclick}>
@@ -149,7 +163,7 @@ const ContactUS = (props) => {
           ))}
         </View>
 
-        <Text style={styles.headingStyle}>{translate(appLanguage, "OysterGano Trout Club")}</Text>
+        <Text style={styles.headingStyle}>{translate(appLanguage, "Farmpreneur Club")}</Text>
       </View>
     </SafeAreaView>
   );
@@ -190,7 +204,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#0b5b80",
   },
-
   textStyle: {
     fontSize: 16,
     fontWeight: "bold",
@@ -207,3 +220,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
+ 

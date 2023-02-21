@@ -109,13 +109,14 @@ const ServiceScreen = (props) => {
 
 
   useEffect(() => {
-    getBanner().then((res) => setBanner(res.data)).catch((error) => {
+    getBanner().then((res) =>{
+      setBanner(res.data)}).catch((error) => {
       toast.show(error.message, { type: "danger", duration: 10000 })
     })
   }, [])
 
   return (
-  <ScrollView>
+    <ScrollView>
       <SafeAreaView>
         <View style={styles.sliderWrapper}>
           <Carousel
@@ -142,7 +143,8 @@ const ServiceScreen = (props) => {
               height: windowHeight,
             }}
           >
-            <View style={{ ...styles.cardConainer}}>
+            <Text style={styles.heading} >Our Services</Text>
+            <View style={{ ...styles.cardConainer }}>
               {btnData.map((data) => (
                 <Pressable onPress={data.onClick} key={data.id}>
                   <View style={styles.iconContainer}>
@@ -156,7 +158,7 @@ const ServiceScreen = (props) => {
           </View>
         </ImageBackground>
       </View>
-  </ScrollView>
+    </ScrollView>
   );
 };
 
@@ -166,6 +168,15 @@ const styles = StyleSheet.create({
   sliderWrapper: {
     zIndex: 2,
     paddingBottom: 4,
+  },
+  heading: {
+    color: "#ffffff",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+    width: 300,
+    borderBottomWidth:1,
+    borderBottomColor:"#ffffff"
   },
   productImg: {
     height: 150,
@@ -196,13 +207,14 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height:responsiveHeight(80)
+    height: responsiveHeight(80)
   },
   overlay: {
     backgroundColor: "rgba(11,91,128,0.7)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
   },
   image: {
     flex: 1,

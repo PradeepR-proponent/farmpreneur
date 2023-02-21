@@ -65,7 +65,7 @@ export default function ProductAdd(props) {
     if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 10000 });
 
     const getItem = () => {
-        let itemArr = [];
+        let itemArr = [<Picker.Item label={translate(appLanguage, `Select`)} value={""} />];
         productList.forEach((ele) => {
             itemArr.push(<Picker.Item label={translate(appLanguage, `${ele?.name}`)} value={ele?.id} />)
         });
@@ -125,26 +125,28 @@ export default function ProductAdd(props) {
                             </TouchableOpacity>,
                         }}
                     /> */}
-                        <Text style={styles.heading}>Select Category</Text>
+                        <Text style={styles.heading}>{translate(appLanguage, `Select Categories`)}</Text>
 
                         <Mpicker
                             selectedValue={selectedCategories}
                             onValueChange={(val, idx) => {
                                 setselectedCategories(val)
+                                if(idx===0)return
                                 setProductList([])
                             }}
                             mode="dropdown"
                         >
-                            <Picker.Item label={"Select"} value={""} />
+                            <Picker.Item label={translate(appLanguage, `Select`)} value={""} />
                             {categories?.map((c) => <Picker.Item label={c} value={c} />)}
                         </Mpicker>
-                        <Text style={[styles.heading,{marginTop:20}]}>Select Product</Text>
+                        <Text style={[styles.heading,{marginTop:20}]}> {translate(appLanguage, `Select Product`)}</Text>
                         <Mpicker
                             selectedValue={product}
                             onValueChange={(val, idx) => {
                                 setProduct(val)
-                                setUnit(productList[idx]?.unit)
-                                setCategory(productList[idx]?.category_name)
+                                if(idx===0)return
+                                setUnit(productList[idx-1]?.unit)
+                                setCategory(productList[idx-1]?.category_name)
                             }}
                             mode="dropdown"
                         >

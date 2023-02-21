@@ -223,7 +223,9 @@ const linksData = {
     "Rate Us": "Rate Us",
     "Settings": "Settings",
     "Logout": "Logout",
-    "Select Categories":"Select Categories"
+    "Select Categories":"Select Category",
+    "Select":"Select",
+    "Select Product":"Select Product"
 }
 
 export const Eng_language = {

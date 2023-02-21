@@ -216,7 +216,9 @@ const linksData = {
     "Rate Us": "हमें रेट करें",
     "Settings": "समायोजन",
     "Logout": "लॉग आउट",
-    "Select Categories":"श्रेणियाँ चुनें"
+    "Select Categories":"वर्ग चुनें",
+    "Select":"चुनें",
+    "Select Product":"उत्पाद का चयन करें"
 }
 
 export const Hindi_language = {

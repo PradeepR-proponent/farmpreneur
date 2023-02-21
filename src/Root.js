@@ -46,6 +46,8 @@ import InsurancePolicy from './screen/services/insurancePolicy';
 import SolarTechnology from './screen/services/solarTechnology';
 import AgroEquipment from './screen/services/agroEquipment';
 import OtherWebView from './screen/other/OtherWebView';
+import ContactUs from './screen/auth/ContactUS'
+
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -218,6 +220,7 @@ function Root({ navigation }) {
                                         <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerTitle: "" }} />
 
 
+                                        <Stack.Screen name="contactus" component={ContactUs} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="Services" component={ServiceScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="Consultancy" component={Consultancy} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="Consultant" component={ConsultancyExperts} options={{ headerTitle: "" }} />

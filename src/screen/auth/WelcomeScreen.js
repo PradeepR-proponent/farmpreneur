@@ -186,7 +186,7 @@ const WelcomeScreen = (props) => {
                                 </View>
                             </View>
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img2.png')} />
-                            <Text style={styles.contactBtn} onPress={() => Linking.openURL("tel:+918265999909")}  >Contact Us</Text>
+                            <Text style={styles.contactBtn} onPress={() =>props.navigation.navigate('contactus')}  >Contact Us</Text>
                         </View>
 
                     </SafeAreaView>

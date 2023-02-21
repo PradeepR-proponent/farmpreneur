@@ -187,7 +187,7 @@ const homePageData = {
     "Products": "उत्पाद",
     "Orders": "आदेश",
     "What's New": "नया क्या है",
-    "Explore daily": "रोज़ाना एक्सप्लोर करें",
+    "Explore daily": "फार्मप्रेन्योर क्लब से नवीनतम अद्यतन का अन्वेषण करें",
     "Farmpreneur Mushroom": "Farmpreneur मशरूम खेत"
 }
 const linksData = {
@@ -215,7 +215,8 @@ const linksData = {
     "Contact Us": "हमसे संपर्क करें",
     "Rate Us": "हमें रेट करें",
     "Settings": "समायोजन",
-    "Logout": "लॉग आउट"
+    "Logout": "लॉग आउट",
+    "Select Categories":"श्रेणियाँ चुनें"
 }
 
 export const Hindi_language = {

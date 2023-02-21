@@ -28,6 +28,11 @@ export default function ProductAdd(props) {
     const [priceHigh, setPriceHigh] = React.useState("");
     const [unit, setUnit] = React.useState("");
     const [stock, setStock] = React.useState("");
+    const [categories, setCategories] = React.useState([]);
+    const [selectedCategories, setselectedCategories] = React.useState(categories[0]);
+    const [productList, setProductList] = React.useState("");
+
+
     // const [hideResult, setHideResult] = React.useState(false);
     // const [products, setProducts] = React.useState([]);
     // const [query, setQuery] = React.useState(null);
@@ -59,6 +64,14 @@ export default function ProductAdd(props) {
     if (userError) toast.show(userError.message, { type: "danger", duration: 10000 });
     if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 10000 });
 
+    const getItem = () => {
+        let itemArr = [];
+        productList.forEach((ele) => {
+            itemArr.push(<Picker.Item label={translate(appLanguage, `${ele?.name}`)} value={ele?.id} />)
+        });
+        return itemArr;
+    }
+
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             productRefetch()
@@ -68,30 +81,19 @@ export default function ProductAdd(props) {
     }, [navigation]);
 
 
-    // useEffect(() => {
-    //     if (query !== null) {
-    //         setProducts(searchProduct());
-    //     }
-    // }, [query]);
+    useEffect(() => {
+        if (data?.data.length) {
+            setCategories(["All", ...new Set(data.data.map((c) => c.category_name))])
+        }
+    }, [data]);
 
-    // function searchProduct() {
-    //     return data.data.filter((item) => {
-    //         if (item.name.toLowerCase().includes(query.toLowerCase()) && query !== "") {
-    //             setUnit(item.unit);
-    //         } else {
-    //             setUnit("");
-    //         }
-    //         return item.name.toLowerCase().includes(query.toLowerCase()) && query !== "";
-    //     });
-    // }
-
-    const getItem = () => {
-        let itemArr = [<Picker.Item label={translate(appLanguage, "Select Product")} value="" />];
-        data?.data?.forEach((ele) => {
-            itemArr.push(<Picker.Item label={translate(appLanguage, `${ele?.name}`)} value={ele?.id} />)
-        });
-        return itemArr;
-    }
+    useEffect(() => {
+        if (selectedCategories != "All") {
+            setProductList(data.data.filter((p) => p.category_name === selectedCategories))
+        }else if(data?.data?.length && selectedCategories =="All") {
+            setProductList(data.data)
+        }
+    }, [selectedCategories]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -125,16 +127,29 @@ export default function ProductAdd(props) {
                             </TouchableOpacity>,
                         }}
                     /> */}
+                        <Text style={styles.heading}>Select Category</Text>
+
+                        <Mpicker
+                            selectedValue={product}
+                            onValueChange={(val, idx) => {
+                                setselectedCategories(val)
+                                setProductList([])
+                            }}
+                            mode="dropdown"
+                        >
+                            {categories?.map((c) => <Picker.Item label={c} value={c} />)}
+                        </Mpicker>
+                        <Text style={styles.heading}>Select Product</Text>
                         <Mpicker
                             selectedValue={product}
                             onValueChange={(val, idx) => {
                                 setProduct(val)
-                                setUnit(data?.data[idx - 1]?.unit)
-                                setCategory(data?.data[idx - 1]?.category_name)
+                                setUnit(productList[idx]?.unit)
+                                setCategory(productList[idx]?.category_name)
                             }}
                             mode="dropdown"
                         >
-                            {data?.data?.length != 0 && getItem()}
+                            {productList.length != 0 && getItem()}
                         </Mpicker>
                         <TextInput
                             label={`${translate(appLanguage, "Minimum Price")} (₹100)`}
@@ -163,12 +178,12 @@ export default function ProductAdd(props) {
                             disabled={true}
                             onChangeText={(t) => setUnit(t)}
                         />
-                        <TextInput
+                   { category &&    <TextInput
                             label={`${translate(appLanguage, "Category")}`}
                             value={category}
                             disabled={true}
                             onChangeText={(t) => setCategory(t)}
-                        />
+                        />}
 
                         {/* <Picker
                         selectedValue={status}
@@ -201,6 +216,12 @@ export default function ProductAdd(props) {
 }
 
 const styles = StyleSheet.create({
+    heading: {
+        marginTop: 20,
+        color: appConstant.themeSecondaryColor,
+        fontWeight: "700",
+        fontSize: 19
+    },
     container: {
         flex: 1,
     },

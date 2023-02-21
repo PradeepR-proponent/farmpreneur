@@ -192,8 +192,8 @@ const homePageData = {
     "Products": "Products",
     "Orders": "Orders",
     "What's New": "What's New",
-    "Explore daily": "Explore daily new products at",
-    "Farmpreneur Mushroom": "Farmpreneur Mushroom Farm"
+    "Explore daily": "Explore latest update from",
+    "Farmpreneur Mushroom": "Farmpreneur Club"
 }
 
 const linksData = {
@@ -222,7 +222,8 @@ const linksData = {
     "Contact Us": "Contact Us",
     "Rate Us": "Rate Us",
     "Settings": "Settings",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Select Categories":"Select Categories"
 }
 
 export const Eng_language = {

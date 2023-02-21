@@ -95,7 +95,6 @@ export default function SupplierDashboard(props) {
         return unsubscribe;
     }, [navigation]);
 
-
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
@@ -121,6 +120,7 @@ export default function SupplierDashboard(props) {
                             loop={true}
                         />
                     </View>
+                    <Text style={styles.heading} >Total Buyers: {data?.data?.buyer} </Text>
                     <View style={styles.statsWrapper}>
                         <Pressable style={styles.statItem} onPress={() => props.navigation.navigate('UserProductStack')}>
                             <View >
@@ -170,6 +170,8 @@ export default function SupplierDashboard(props) {
 
                         />}
                         {news?.length == 0 && <InfoCard pb={30} type={"notFound"} message={"No news found."} imgSize={70} />}
+
+
                         <View style={{ position: "absolute", bottom: -10, width: "100%" }}>
                             <Pagination
                                 dotsLength={news?.length}
@@ -205,11 +207,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    heading: {
+        color: appConstant.themeSecondaryColor,
+        fontWeight: "700",
+        fontSize: 19,
+        margin:20
+    },
     main: {
         flex: 1,
         backgroundColor: "#fff",
     },
-
     sliderWrapper: {
 
     },

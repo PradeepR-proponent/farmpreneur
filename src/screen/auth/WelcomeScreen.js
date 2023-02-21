@@ -154,7 +154,7 @@ const WelcomeScreen = (props) => {
                                     <Pressable onPress={handleHindi} style={[styles.btn, { backgroundColor: selectLang === "Hindi" ? "green" : "#ffffff", }]}  ><Text style={{ color: selectLang === "Hindi" ? "#ffffff" : "#0B5B80" }} >हिंदी</Text></Pressable>
                                 </View>
                             </View>
-                            <View style={styles.textArea} >
+                            <View style={styles.textArea}>
                                 <View >
                                     <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(3), fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
                                     <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
@@ -185,12 +185,10 @@ const WelcomeScreen = (props) => {
                                     </TouchableOpacity>
                                 </View>
                             </View>
-                            <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img2.png')} />
+                            <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img3.png')} />
                             <Text style={styles.contactBtn} onPress={() =>props.navigation.navigate('contactus')}  >Contact Us</Text>
                         </View>
-
                     </SafeAreaView>
-
                 </LinearGradient>
             </SafeAreaView >
         )
@@ -316,8 +314,8 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     overlayImg: {
-        width: responsiveScreenWidth(100),
-        height: responsiveScreenHeight(18),
+        width: "100%",
+        height:"20%",
         resizeMode: "cover",
         backgroundColor: "#0d6999",
     },

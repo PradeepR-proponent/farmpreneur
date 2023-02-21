@@ -15,10 +15,10 @@ const CourseStack = () => {
         //     header: (props) => <Header {...props} />,
         // }}
         >
-            <Stack.Screen name="TrainignList" options={{ headerShown: true, headerTitle: "" }} component={TrainingList} />
-            <Stack.Screen name="TrainingDetail" options={{ headerShown: true, headerTitle: "" }} component={TrainingDetail} />
-            <Stack.Screen name="TrainingConfirm" options={{ headerShown: true, headerTitle: "" }} component={TrainingConfirm} />
-            <Stack.Screen name="TrainingPayment" options={{ headerShown: true, headerTitle: "" }} component={InstaWebview} />
+            <Stack.Screen name="TrainignList" options={{ headerShown: false, headerTitle: "" }} component={TrainingList} />
+            <Stack.Screen name="TrainingDetail" options={{ headerShown: false, headerTitle: "" }} component={TrainingDetail} />
+            <Stack.Screen name="TrainingConfirm" options={{ headerShown: false, headerTitle: "" }} component={TrainingConfirm} />
+            <Stack.Screen name="TrainingPayment" options={{ headerShown: false, headerTitle: "" }} component={InstaWebview} />
         </Stack.Navigator>
     );
 }

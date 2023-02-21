@@ -29,7 +29,7 @@ export default function ProductAdd(props) {
     const [unit, setUnit] = React.useState("");
     const [stock, setStock] = React.useState("");
     const [categories, setCategories] = React.useState([]);
-    const [selectedCategories, setselectedCategories] = React.useState(categories[0]);
+    const [selectedCategories, setselectedCategories] = React.useState("");
     const [productList, setProductList] = React.useState("");
 
 
@@ -82,16 +82,14 @@ export default function ProductAdd(props) {
 
 
     useEffect(() => {
-        if (data?.data.length) {
-            setCategories(["All", ...new Set(data.data.map((c) => c.category_name))])
+        if (data?.data?.length) {
+            setCategories([...new Set(data.data.map((c) => c.category_name))])
         }
     }, [data]);
 
     useEffect(() => {
-        if (selectedCategories != "All") {
+        if (selectedCategories != "") {
             setProductList(data.data.filter((p) => p.category_name === selectedCategories))
-        }else if(data?.data?.length && selectedCategories =="All") {
-            setProductList(data.data)
         }
     }, [selectedCategories]);
 
@@ -130,16 +128,17 @@ export default function ProductAdd(props) {
                         <Text style={styles.heading}>Select Category</Text>
 
                         <Mpicker
-                            selectedValue={product}
+                            selectedValue={selectedCategories}
                             onValueChange={(val, idx) => {
                                 setselectedCategories(val)
                                 setProductList([])
                             }}
                             mode="dropdown"
                         >
+                            <Picker.Item label={"Select"} value={""} />
                             {categories?.map((c) => <Picker.Item label={c} value={c} />)}
                         </Mpicker>
-                        <Text style={styles.heading}>Select Product</Text>
+                        <Text style={[styles.heading,{marginTop:20}]}>Select Product</Text>
                         <Mpicker
                             selectedValue={product}
                             onValueChange={(val, idx) => {
@@ -217,7 +216,6 @@ export default function ProductAdd(props) {
 
 const styles = StyleSheet.create({
     heading: {
-        marginTop: 20,
         color: appConstant.themeSecondaryColor,
         fontWeight: "700",
         fontSize: 19

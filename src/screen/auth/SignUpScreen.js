@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import { SafeAreaView, ScrollView,Linking, StyleSheet, Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
 import fontsLoaded from "config/fonts";
@@ -176,8 +176,8 @@ const SignUpScreen = (props) => {
                         </View>
                         <View style={styles.rowWrapper}>
                             <Text style={styles.textItemFooter}>{`${translate(appLanguage, "By continuing you agree to")} `}
-                                <Text style={styles.textItemLink} onPress={() => { alert('clicked') }}>{translate(appLanguage, "terms & conditions")}</Text> {translate(appLanguage, "and")}
-                                <Text style={styles.textItemLink} onPress={() => { alert('clicked') }}> {translate(appLanguage, "privacy policy")}</Text></Text>
+                                <Text style={styles.textItemLink} onPress={() => Linking.openURL(appConstant.termUrl )}>{translate(appLanguage, "terms & conditions")}</Text> {translate(appLanguage, "and")}
+                                <Text style={styles.textItemLink} onPress={ ()=> Linking.openURL(appConstant.privacyUrl )}> {translate(appLanguage, "privacy policy")}</Text></Text>
                         </View>
                     </View>
                 </ScrollView>

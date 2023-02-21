@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { FlatList, SafeAreaView, View, StyleSheet, Pressable, Image, Text } from "react-native";
+import {
+    FlatList, SafeAreaView, View,
+    useWindowDimensions,
+    StyleSheet, Pressable, Image, Text
+} from "react-native";
 import appConstant from "config/constants";
 import { StatusBar } from "expo-status-bar";
 import { fetchAllCourses } from 'services/course';
@@ -9,14 +13,32 @@ import moment from 'moment';
 import InfoCard from "components/Card/InfoCard";
 import { translate, translateAPI } from '../../languageFeature'
 import { useSelector } from 'react-redux';
+import { getBanner } from "../../services/banner"
+import Carousel from "react-native-snap-carousel";
 
 export default function CourseList(props) {
 
     const { appLanguage } = useSelector(state => state.auth)
     const [courses, setCourses] = React.useState([]);
+    const [banner, setBanner] = React.useState([]);
+    const windowWidth = useWindowDimensions().width;
+
     const toast = useToast();
     const { navigation } = props;
-
+    const sliderData = banner?.length != 0 ? banner : [
+        {
+            id: 1,
+            image: require('assets/home/banner-1.jpg')
+        },
+        {
+            id: 2,
+            image: require('assets/home/banner-2.jpg')
+        },
+        {
+            id: 3,
+            image: require('assets/home/banner-3.jpg')
+        }
+    ];
     function handleProductClick(id) {
         if (id)
             props.navigation.navigate('Training', { screen: 'TrainingDetail', params: { id } });
@@ -42,6 +64,14 @@ export default function CourseList(props) {
         return unsubscribe;
     }, [navigation]);
 
+
+    React.useEffect(() => {
+        getBanner().then((res) => setBanner(res.data)).catch((error) => {
+            toast.show(error.message, { type: "danger", duration: 10000 })
+        })
+    }, [])
+
+
     const Item = ({ title, description, title_hi, description_hi, image, duration, price, startDate, handleClick, seatNum }) => {
         return (
             <Pressable style={styles.itemWrapper} onPress={() => {
@@ -52,7 +82,7 @@ export default function CourseList(props) {
                 </View>
                 <View style={styles.itemDetails}>
                     <Text style={styles.itemTitle} numberOfLines={2}>{translateAPI(appLanguage, `${title}`, title_hi)}</Text>
-                    <Text style={styles.itemTags} numberOfLines={3} > {translateAPI(appLanguage, `${description}`,`${description_hi}`)}</Text>
+                    <Text style={styles.itemTags} numberOfLines={3} > {translateAPI(appLanguage, `${description}`, `${description_hi}`)}</Text>
                     {props.rating !== undefined && (<View style={styles.itemRating}>
                         {fetchRatings(props.rating)}
                     </View>)}
@@ -79,6 +109,25 @@ export default function CourseList(props) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
+            <View style={styles.sliderWrapper}>
+                <Carousel
+                    data={sliderData}
+                    renderItem={({ item, index }) => (<Pressable onPress={() => openLink(banner?.length > 0 ? item?.url : appConstant?.appUrl)}>
+                        <Image source={banner?.length > 0 ? { uri: item?.image } : item?.image} style={styles.productImg} />
+                    </Pressable>)}
+                    sliderWidth={windowWidth}
+                    itemWidth={windowWidth}
+                    autoplay={true}
+                    autoplayInterval={4000}
+                    autoplayDelay={4000}
+                    enableMomentum={false}
+                    lockScrollWhileSnapping={true}
+                    loop={true}
+                />
+            </View>
+
+
+
             <View style={styles.main}>
                 {courses?.length != 0 && <FlatList
                     keyExtractor={(item) => item.id}
@@ -111,6 +160,14 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         backgroundColor: "#fff",
+        paddingTop:20
+    },
+    productImg: {
+        height: 120,
+        width: "100%",
+        resizeMode: "cover"
+    },
+    sliderWrapper: {
     },
     itemWrapper: {
         flex: 1,

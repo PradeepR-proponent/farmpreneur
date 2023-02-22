@@ -93,10 +93,7 @@ const SignInScreen = (props) => {
             })
         })
             .then(function (response) {
-
-                console.log(response.data)
-
-
+                // console.log(response.data)
                 if (response.data.error === undefined) {
                     setIsLoading(false);
                     props.navigation.navigate('OTPAuth', {

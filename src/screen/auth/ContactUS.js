@@ -34,7 +34,7 @@ const ContactUS = (props) => {
         <Entypo name="facebook" size={30} color="#0b5b80" style={styles.icon} />
       ),
       onclick: () =>
-        Linking.openURL("https://www.facebook.com/OysterGano.Trout.Club"),
+        Linking.openURL("https://www.facebook.com/clubfarmpreneur"),
     },
     {
       id: "2",
@@ -47,7 +47,7 @@ const ContactUS = (props) => {
         />
       ),
       onclick: () =>
-        Linking.openURL("https://www.instagram.com/Oystergano.Trout.Club/"),
+        Linking.openURL("https://www.instagram.com/farmpreneur.club/"),
     },
     // {
     //   id: "3",
@@ -86,7 +86,7 @@ const ContactUS = (props) => {
         />
       ),
       onclick: () =>
-        Linking.openURL("https://in.pinterest.com/iGROWkamal/_created/"),
+        Linking.openURL("https://in.pinterest.com/Farmpreneurclub/"),
     },
     {
       id: "6",

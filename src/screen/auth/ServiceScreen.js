@@ -143,7 +143,7 @@ const ServiceScreen = (props) => {
               height: windowHeight,
             }}
           >
-            <Text style={styles.heading} >Our Services</Text>
+            <Text style={styles.heading} >{translate(appLanguage, "Our Services")}</Text>
             <View style={{ ...styles.cardConainer }}>
               {btnData.map((data) => (
                 <Pressable onPress={data.onClick} key={data.id}>

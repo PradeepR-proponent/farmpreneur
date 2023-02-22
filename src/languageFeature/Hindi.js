@@ -59,6 +59,7 @@ const bankScreen = {
     "No data": "कोई डेटा नहीं",
     "Enter Your Location": "अपनी स्थिति दर्ज़ करें",
     "Temperature": "तापमान",
+    "Our Services":"हमारी सेवाएँ",
     //consultancy
     "Mr. Keshav Sharma":"श्री केशव शर्मा",
     "Mr. Alok Jha":"श्री आलोक झा",

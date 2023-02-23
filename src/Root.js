@@ -214,7 +214,7 @@ function Root({ navigation }) {
                                         }}
                                     >
                                         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
-                                        <Stack.Screen name="Training" component={TrainingStack} options={{ headerShown: true,headerTitle:"" }} />
+                                        <Stack.Screen name="Training" component={TrainingStack} options={{ headerShown: true,headerTitle:translate(appLanguage,"Training") }} />
                                         {/* <Stack.Screen name="BeforeUserAction" component={BeforeUserAction} options={{ headerShown: false }} /> */}
                                         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="OTPAuth" component={OTPAuthScreen} options={{ headerTitle: "" }} />

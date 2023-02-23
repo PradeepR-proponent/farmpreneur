@@ -213,13 +213,14 @@ const linksData = {
     "About Farmpreneur": "Farmpreneur के बारे में",
     "Privacy Policy": "गोपनीयता नीति",
     "Term & Conditions": "नियम और शर्तें",
-    "Contact Us": "हमसे संपर्क करें",
+    "Contact Us": "संपर्क करें",
     "Rate Us": "हमें रेट करें",
     "Settings": "समायोजन",
     "Logout": "लॉग आउट",
     "Select Categories":"वर्ग चुनें",
     "Select":"चुनें",
-    "Select Product":"उत्पाद का चयन करें"
+    "Select Product":"उत्पाद का चयन करें",
+    "Comming Soon":"जल्द आ रहा है.."
 }
 
 export const Hindi_language = {

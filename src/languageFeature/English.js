@@ -59,6 +59,7 @@ const bankScreen = {
     "Enter Your Location": "Enter Your Location",
     "Temperature": "Temperature",
     "Our Services":"Our Services",
+    "Comming Soon":"Comming Soon...",
     //consultancy
     "Mr. Kamal Sharma":"Mr. Kamal Sharma",
     "(Pursuing PHD, G.B Pant)": "(Pursuing PHD, G.B Pant)",

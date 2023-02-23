@@ -47,7 +47,7 @@ import SolarTechnology from './screen/services/solarTechnology';
 import AgroEquipment from './screen/services/agroEquipment';
 import OtherWebView from './screen/other/OtherWebView';
 import ContactUs from './screen/auth/ContactUS'
-
+import {translate}from './languageFeature/index'
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -60,6 +60,7 @@ const queryClient = new QueryClient({
 function Root({ navigation }) {
     LogBox.ignoreAllLogs(true);
     LogBox.ignoreLogs(['Setting a timer']);
+    const { appLanguage } = useSelector(state => state.auth)
 
     const Stack = createStackNavigator();
     const usertoken = useSelector(userToken);
@@ -218,10 +219,8 @@ function Root({ navigation }) {
                                         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="OTPAuth" component={OTPAuthScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerTitle: "" }} />
-
-
                                         <Stack.Screen name="contactus" component={ContactUs} options={{ headerTitle: "" }} />
-                                        <Stack.Screen name="Services" component={ServiceScreen} options={{ headerTitle: "" }} />
+                                        <Stack.Screen name="Services" component={ServiceScreen} options={{ headerTitle: translate(appLanguage,"Services") }} />
                                         <Stack.Screen name="Consultancy" component={Consultancy} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="Consultant" component={ConsultancyExperts} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="WeatherForcast" component={WeatherForcast} options={{ headerTitle: "" }} />

@@ -1,48 +1,25 @@
 import React, { useEffect, useState } from "react";
 import {
   Image,
-  ImageBackground,
   Pressable,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   useWindowDimensions,
   View,
-  Linking,
 } from "react-native";
-import Carousel, { Pagination } from "react-native-snap-carousel";
-import Loader from "components/Loader";
-import { StatusBar } from "expo-status-bar";
-import appConstant from "config/constants";
-import ProductList from "screen/user/buyer/product/ProductList";
-import { AntDesign, Feather } from "@expo/vector-icons";
-import { fetchAllHomeScreenNews } from "services/news";
+import Carousel from "react-native-snap-carousel";
 import { useToast } from "react-native-toast-notifications";
-import { formatDate } from "helper";
-import InfoCard from "components/Card/InfoCard";
-import image from "../../assets/images/weatherImage.jpg";
 import hybrid from "../../assets/images/hybrid.png";
 import insuranc from "../../assets/images/insuranc.png";
 import solar from "../../assets/images/solar.png";
 import weather from "../../assets/images/weather.png";
 import agro from "../../assets/images/agro.png";
+import more from "../../assets/images/more.png";
 import { translate } from '../../languageFeature'
 import { useSelector } from "react-redux";
 import { getBanner } from '../../services/banner'
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveScreenHeight,
-  responsiveScreenWidth,
-  responsiveScreenFontSize,
-
-} from "react-native-responsive-dimensions";
-
-import { ALWAYS } from "expo-secure-store";
-
-
 
 const ServiceScreen = (props) => {
   const { appLanguage } = useSelector(state => state.auth)
@@ -78,14 +55,18 @@ const ServiceScreen = (props) => {
       btnName: translate(appLanguage, "Hybrid Model"),
       onClick: () => props.navigation.navigate('OtherWebView', { uri: 'https://mnre.gov.in/' })
     },
-
     {
       id: "3",
       icon: solar,
       btnName: translate(appLanguage, "Solar Technology"),
       onClick: () => props.navigation.navigate('OtherWebView', { uri: 'https://mnre.gov.in/' })
     },
-
+    {
+      id: "6",
+      icon: more,
+      btnName: translate(appLanguage, "Comming Soon"),
+      onClick: () => { return },
+    }
 
   ];
 
@@ -109,8 +90,9 @@ const ServiceScreen = (props) => {
 
 
   useEffect(() => {
-    getBanner().then((res) =>{
-      setBanner(res.data)}).catch((error) => {
+    getBanner().then((res) => {
+      setBanner(res.data)
+    }).catch((error) => {
       toast.show(error.message, { type: "danger", duration: 10000 })
     })
   }, [])
@@ -134,30 +116,18 @@ const ServiceScreen = (props) => {
           />
         </View>
       </SafeAreaView>
-      <View style={styles.container}>
-        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-          <View
-            style={{
-              ...styles.overlay,
-              width: windowWidth,
-              height: windowHeight,
-            }}
-          >
-            <Text style={styles.heading} >{translate(appLanguage, "Our Services")}</Text>
-            <View style={{ ...styles.cardConainer }}>
-              {btnData.map((data) => (
-                <Pressable onPress={data.onClick} key={data.id}>
-                  <View style={styles.iconContainer}>
-                    <Image source={data.icon} style={styles.icons} />
-                    <Text style={styles.text}>{data.btnName}</Text>
-                  </View>
-                </Pressable>
-              ))}
-
+      <View style={{ ...styles.cardConainer }}>
+        {btnData.map((data) => (
+          <Pressable onPress={data.onClick} key={data.id}>
+            <View style={styles.iconContainer}>
+              <Image source={data.icon} style={styles.icons} />
+              <Text style={styles.text}>{data.btnName}</Text>
             </View>
-          </View>
-        </ImageBackground>
+          </Pressable>
+        ))}
+
       </View>
+
     </ScrollView>
   );
 };
@@ -167,77 +137,42 @@ export default ServiceScreen;
 const styles = StyleSheet.create({
   sliderWrapper: {
     zIndex: 2,
-    paddingBottom: 4,
-  },
-  heading: {
-    color: "#ffffff",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-    width: 300,
-    borderBottomWidth:1,
-    borderBottomColor:"#ffffff"
   },
   productImg: {
-    height: 150,
+    height: 115,
     width: "100%",
     resizeMode: "cover",
   },
   iconContainer: {
-    width: 300,
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    margin: 15,
+    padding: 5
+  },
+  icons: {
+    width: 50,
+    height: 50,
+    resizeMode: "cover",
+    marginBottom: 10,
+  },
+  cardConainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  icons: {
-    width: 30,
-    height: 30,
-    resizeMode: "cover",
-    marginRight: 10,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "rgba(11,91,128,0.7)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: responsiveHeight(80)
-  },
-  overlay: {
-    backgroundColor: "rgba(11,91,128,0.7)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-  },
-  cardConainer: {
-    height: 450,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexWrap: "wrap",
+    marginTop: 10
   },
   text: {
     color: "black",
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "700",
   },
 });
 
-// dark="#052b40"
-// circle="#0b5b80"
-// light=""

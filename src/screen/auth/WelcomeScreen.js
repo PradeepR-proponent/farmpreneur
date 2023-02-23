@@ -186,7 +186,7 @@ const WelcomeScreen = (props) => {
                                 </View>
                             </View>
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img3.png')} />
-                            <Text style={styles.contactBtn} onPress={() =>props.navigation.navigate('contactus')}  >Contact Us</Text>
+                            <Text style={styles.contactBtn} onPress={() =>props.navigation.navigate('contactus')}  > {translate(appLanguage, "Contact Us")}</Text>
                         </View>
                     </SafeAreaView>
                 </LinearGradient>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     },
     contactBtn: {
         position: "absolute",
-        right: -45,
+        right: -43,
         bottom: 150,
         zIndex: 50,
         backgroundColor: "#ffffff",

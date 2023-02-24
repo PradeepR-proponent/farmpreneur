@@ -8,9 +8,7 @@ import {
     responsiveWidth,
     responsiveScreenHeight,
     responsiveScreenWidth,
-    responsiveScreenFontSize,
     responsiveFontSize,
-
 } from "react-native-responsive-dimensions";
 import { StatusBar } from "expo-status-bar";
 import fontsLoaded from "config/fonts";

@@ -70,7 +70,7 @@ export default function Header(props) {
                     <View style={[styles.name, { marginLeft: -40 }]}>
                         {/* <Text style={{ color: "#ffffff", }}>,</Text> */}
                         <Text style={{ color: "#ffffff", }}>{translate(appLanguage, "Hi")}, {userdata?.name?.split(" ")[0] ?? userdata?.name}</Text>
-                        <Text style={{ color: "#ffffff",fontSize:12 }}>{userdata?.id_no}</Text>
+                        <Text style={{ color: "#ffffff", fontSize: 12 }}>{userdata?.id_no}</Text>
                     </View>
 
 
@@ -86,7 +86,9 @@ const styles = StyleSheet.create({
     },
     name: {
         display: "flex",
-
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        alignItems: "flex-end"
     },
     badgeIcon: {
         backgroundColor: "white"

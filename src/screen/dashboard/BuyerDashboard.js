@@ -29,7 +29,9 @@ import Dummy from "assets/icon/dummy.png";
 import { translate } from '../../languageFeature'
 import { useSelector } from 'react-redux';
 import iconsImage from "assets/icon/icons.png"
-
+import {
+    responsiveHeight,
+} from "react-native-responsive-dimensions";
 export default function BuyerDashboard(props) {
 
     const { appLanguage } = useSelector(state => state.auth)
@@ -169,7 +171,7 @@ const styles = StyleSheet.create({
     sliderWrapper: {
     },
     productImg: {
-        height: 115,
+        height: responsiveHeight(15),
         width: "100%",
         resizeMode: "cover"
     },

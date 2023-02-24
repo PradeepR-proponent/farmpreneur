@@ -14,6 +14,9 @@ import {
     Linking,
     View
 } from "react-native";
+import {
+    responsiveHeight,
+} from "react-native-responsive-dimensions";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
 import Carousel, { Pagination } from "react-native-snap-carousel";
@@ -205,15 +208,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     sliderWrapper: {
-
     },
     productImg: {
-        height: 115,
+        height:responsiveHeight(15),
         width: "100%",
         resizeMode: "cover"
     },
     statsWrapper: {
-
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",

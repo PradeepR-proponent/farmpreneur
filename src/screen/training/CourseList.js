@@ -15,6 +15,8 @@ import { translate, translateAPI } from '../../languageFeature'
 import { useSelector } from 'react-redux';
 import { getBanner } from "../../services/banner"
 import Carousel from "react-native-snap-carousel";
+import { responsiveHeight } from 'react-native-responsive-dimensions';
+
 
 export default function CourseList(props) {
 
@@ -163,7 +165,7 @@ const styles = StyleSheet.create({
         paddingTop:20
     },
     productImg: {
-        height: 115,
+         height: responsiveHeight(15),
         width: "100%",
         resizeMode: "cover"
     },

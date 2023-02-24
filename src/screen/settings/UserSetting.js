@@ -25,12 +25,17 @@ const UserSetting = () => {
 
     const { appLanguage } = useSelector(state => state.auth)
     const dispatch = useDispatch()
-    const [selected, setSelected] = useState(appConstant?.Languages[0])
+    const [selected, setSelected] = useState("")
 
     const height = useWindowDimensions().height;
     const windowWidth = useWindowDimensions().width
 
-
+    const getLang = async () => {
+        const lang = await SecureStore.getItemAsync('appLang');
+        if (lang != null) {
+            setSelected(lang)
+        }
+    }
 
     const setLang = async (appLang) => {
         try {
@@ -50,6 +55,11 @@ const UserSetting = () => {
             setLang("Hindi")
         }
     }, [selected])
+
+
+    useEffect(() => {
+        getLang()
+    }, [])
 
 
     return (<SafeAreaView>

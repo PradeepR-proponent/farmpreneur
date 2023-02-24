@@ -20,6 +20,7 @@ import more from "../../assets/images/more.png";
 import { translate } from '../../languageFeature'
 import { useSelector } from "react-redux";
 import { getBanner } from '../../services/banner'
+import { responsiveHeight } from 'react-native-responsive-dimensions';
 
 const ServiceScreen = (props) => {
   const { appLanguage } = useSelector(state => state.auth)
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   productImg: {
-    height: 115,
+     height: responsiveHeight(15),
     width: "100%",
     resizeMode: "cover",
   },

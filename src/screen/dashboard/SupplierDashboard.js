@@ -123,7 +123,7 @@ export default function SupplierDashboard(props) {
                         <Pressable style={styles.statItem} onPress={() => props.navigation.navigate('UserProductStack')}>
                             <View >
                                 <AntDesign name="shoppingcart" size={IconSize} color={IconColor} />
-                                <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.products}</Text>{translate(appLanguage, "Products")}</Text>
+                                <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.products} </Text>{translate(appLanguage, "Products")}</Text>
                             </View>
                         </Pressable>
                         <Pressable style={styles.statItem} onPress={() => props.navigation.navigate('Order')} >
@@ -198,7 +198,6 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontSize: 19,
         padding:20,
-        paddingBottom:0,
         backgroundColor:appConstant.themePrimaryLightColor,
     },
     main: {

@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     },
     itemWrapper: {
         flexDirection: "row",
+        alignItems: "flex-start",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -101,12 +102,10 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
-
         elevation: 4,
         backgroundColor: "#ffffff",
         margin: 15,
         marginVertical: 20,
-        alignItems: "center",
         padding: 10
     },
     dateWrapper: {

@@ -177,7 +177,7 @@ const DrawerNavigator = (props) => {
       }} />
       <Drawer.Screen name="UserDocScreen" component={UserDocScreen} options={{
         headerShown: true,
-        title: "User Documents"
+        title:translate(appLanguage,"User Documents")  
       }} />
       <Drawer.Screen name="BuyerProductStack" component={BuyerProductStack} />
     </Drawer.Navigator>

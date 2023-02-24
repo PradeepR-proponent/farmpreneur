@@ -58,11 +58,7 @@ const DrawerNavigator = (props) => {
       <Drawer.Screen name="UserSetting" component={UserSetting} options={{
         headerShown: true,
         title: translate(appLanguage, "Settings"),
-
-      }}
-
-
-      />
+      }}/>
 
 
       <Drawer.Screen name="ProfileStack" component={ProfileStack} />
@@ -76,7 +72,7 @@ const DrawerNavigator = (props) => {
         component={ContactUS}
         options={{
           headerShown: true,
-          title: "Contact Us",
+          title: translate(appLanguage, "Contact Us"),
         }}
       />
 
@@ -85,7 +81,7 @@ const DrawerNavigator = (props) => {
         component={Consultancy}
         options={{
           headerShown: true,
-          title: "Consultancy",
+          title:translate(appLanguage,"Consultancy") ,
         }}
       />
       <Drawer.Screen
@@ -101,7 +97,7 @@ const DrawerNavigator = (props) => {
         component={ServiceScreen}
         options={{
           headerShown: true,
-          title: "Services"
+          title: translate(appLanguage,"Services"), 
         }}
       />
 
@@ -156,7 +152,7 @@ const DrawerNavigator = (props) => {
         component={DwaerTraningStack}
         options={{
           headerShown: true,
-          title: ""
+          title: translate(appLanguage,"Training")
         }}
       />
 
@@ -177,7 +173,7 @@ const DrawerNavigator = (props) => {
       <Drawer.Screen name="UserProductStack" component={UserProductStack} />
       <Drawer.Screen name="BankInfoScreen" component={BankInfoScreen} options={{
         headerShown: true,
-        title: "Bank Details"
+        title:translate(appLanguage,"Bank Details") 
       }} />
       <Drawer.Screen name="UserDocScreen" component={UserDocScreen} options={{
         headerShown: true,

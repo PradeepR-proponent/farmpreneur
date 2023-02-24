@@ -219,7 +219,7 @@ function Root({ navigation }) {
                                         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="OTPAuth" component={OTPAuthScreen} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerTitle: "" }} />
-                                        <Stack.Screen name="contactus" component={ContactUs} options={{ headerTitle: "" }} />
+                                        <Stack.Screen name="contactus" component={ContactUs} options={{ headerTitle: translate(appLanguage,"Contact Us") }} />
                                         <Stack.Screen name="Services" component={ServiceScreen} options={{ headerTitle: translate(appLanguage,"Services") }} />
                                         <Stack.Screen name="Consultancy" component={Consultancy} options={{ headerTitle: "" }} />
                                         <Stack.Screen name="Consultant" component={ConsultancyExperts} options={{ headerTitle: "" }} />

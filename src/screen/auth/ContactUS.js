@@ -12,8 +12,6 @@ import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
 import {
   AntDesign,
-  MaterialIcons,
-  MaterialCommunityIcons,
   Entypo,
   FontAwesome,
   FontAwesome5,
@@ -60,7 +58,6 @@ const ContactUS = (props) => {
     //     />
     //   ),
     //   onclick: () => Linking.openURL('https://www.linkedin.com/in/kamal-sharma-7b635a18/'),
-
     // },
     {
       id: "4",
@@ -106,14 +103,13 @@ const ContactUS = (props) => {
     <SafeAreaView style={{ ...styles.container, width: windowWidth, height: windowHeight }} >
       <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
       <View style={styles.textArea}>
-        <Text style={styles.headingStyle}>
+        <Text style={styles.mainheadingStyle}>
           {translate(appLanguage, "AGRO")}
         </Text>
       </View>
-
       <View style={styles.textArea}>
         <View style={styles.flexSection}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Web")}- </Text>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Web")}: </Text>
           <View>
             <Pressable onPress={() => Linking.openURL("https://farmpreneur.in/")}>
               <Text style={styles.text}>www.farmpreneur.in</Text>
@@ -122,7 +118,7 @@ const ContactUS = (props) => {
         </View>
 
         <View style={styles.flexSection}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Mail")}- </Text>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Mail")}: </Text>
           <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
             <Text style={styles.text}>
               farmpreneur.club@gmail.com
@@ -136,9 +132,7 @@ const ContactUS = (props) => {
         <View style={styles.flexSection}>
           <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Business help")}: </Text>
           <Pressable onPress={() => Linking.openURL("tel:+918265999909")} >
-            <Text style={styles.text}>
-              +91 8265999909
-            </Text>
+            <Text style={styles.text}>+91 8265999909</Text>
           </Pressable>
         </View>
 
@@ -203,13 +197,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#0b5b80",
   },
+  mainheadingStyle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    color: "#0b5b80",
+    borderBottomColor:"#0b5b80",
+    borderBottomWidth:2
+  },
   textStyle: {
     fontSize: 16,
     fontWeight: "bold",
     color: "green",
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     color: "#0b5b80",
     marginBottom: 5,
   },

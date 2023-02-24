@@ -98,9 +98,7 @@ export default function SupplierDashboard(props) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
-            {/*<ImageBackground source={require('assets/home/bg.webp')} style={styles.topProfileBg}*/}
-            {/*                 imageStyle={styles.topProfileBgImg}>*/}
-            {/*</ImageBackground>*/}
+          
             <ScrollView style={styles.main} contentContainerStyle={styles.mainContent}>
                 <View style={styles.mainWrapper}>
                     <View style={styles.sliderWrapper}>
@@ -120,12 +118,12 @@ export default function SupplierDashboard(props) {
                             loop={true}
                         />
                     </View>
-                    <Text style={styles.heading} >Total Buyers: {data?.data?.buyer} </Text>
+                    <Text style={styles.heading} >{translate(appLanguage, "Total Buyers")}: {data?.data?.buyer} </Text>
                     <View style={styles.statsWrapper}>
                         <Pressable style={styles.statItem} onPress={() => props.navigation.navigate('UserProductStack')}>
                             <View >
                                 <AntDesign name="shoppingcart" size={IconSize} color={IconColor} />
-                                <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.products}</Text> {translate(appLanguage, "Products")} </Text>
+                                <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.products}</Text>{translate(appLanguage, "Products")}</Text>
                             </View>
                         </Pressable>
                         <Pressable style={styles.statItem} onPress={() => props.navigation.navigate('Order')} >
@@ -134,14 +132,6 @@ export default function SupplierDashboard(props) {
                                 <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.orders}</Text> {translate(appLanguage, "Orders")}</Text>
                             </View>
                         </Pressable>
-                        {/* <View style={styles.statItem}>
-                            <AntDesign name="book" size={IconSize} color={IconColor}/>
-                            <Text style={styles.statTxt}><Text style={styles.statCount}>{data?.data?.courses}</Text> Courses</Text>
-                        </View>
-                        <View style={styles.statItem}>
-                            <AntDesign name="infocirlceo" size={IconSize} color={IconColor}/>
-                            <Text style={styles.statTxt}><Text style={styles.statCount}>0</Text> Enquiries</Text>
-                        </View> */}
                     </View>
                     <View style={styles.middleBanner}>
                         <View style={styles.bannerTxtWrapper}>
@@ -192,10 +182,6 @@ export default function SupplierDashboard(props) {
                             />
                         </View>
                     </View>
-                    {/* <View style={[styles.middleBanner,{flexDirection:"row",justifyContent:"space-around",padding:20}]}>
-                            <Text style={styles.middleBannerTitle}>View Buyer Dashboard</Text>
-                            <Button title={"Go Now"} onPress={()=>{props.navigation.navigate('BuyerDashboard')}} color={appConstant.themePrimaryColor}/>
-                    </View> */}
                 </View>
             </ScrollView>
             {(loading || isFetching || newsLoading || newsIsFetching) && (<Loader visible={true} />)}
@@ -208,12 +194,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     heading: {
-        color: appConstant.themeSecondaryColor,
+        color: "#333",
         fontWeight: "700",
         fontSize: 19,
         padding:20,
         paddingBottom:0,
-        backgroundColor:"#fbfbfb"
+        backgroundColor:appConstant.themePrimaryLightColor,
     },
     main: {
         flex: 1,

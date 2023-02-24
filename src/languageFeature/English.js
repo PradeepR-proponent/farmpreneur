@@ -25,7 +25,9 @@ const welcomeScreen = {
     "Didn't get code": "Didn't get code ",
     "Resend": "Resend ",
     "Resend OTP in": "Resend OTP in ",
-    "Category":"Category"
+    "Category":"Category",
+    "Total Buyers":"Total Buyers",
+    "Total Supplier":"Total Supplier"
 }
 const bankScreen = {
     "Account Holder Name": "Account Holder Name",

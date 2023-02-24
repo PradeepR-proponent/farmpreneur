@@ -26,6 +26,8 @@ const welcomeScreen = {
     "Resend": "पुन: भेजें",
     "Resend OTP in": " ओटीपी फिर से भेजें ",
     "Category":"वर्ग",
+    "Total Buyers":"कुल खरीदार",
+    "Total Supplier":"कुल विक्रेता",
     "AGRO": "Agro Farmpreneur Solution Private Limited",
 }
 const bankScreen = {

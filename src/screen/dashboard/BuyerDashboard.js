@@ -19,6 +19,7 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import ProductList from "screen/user/buyer/product/ProductList";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { fetchAllHomeScreenNews } from 'services/news';
+import { fetchSupplierStats } from 'services/user';
 import { fetchAllBanner, getBanner } from 'services/banner';
 import Loader from "components/Loader";
 import { useToast } from "react-native-toast-notifications";
@@ -57,17 +58,13 @@ export default function BuyerDashboard(props) {
     const { isLoading: bannerLoading, error: bannerError, bannerData, isFetching: bannerIsFetching, refetch: bannerRefetch } = fetchAllBanner();
     if (bannerError);
 
-
-
-
+   //fetch member data
+   const { isLoading: loading, error, data, isFetching, refetch } = fetchSupplierStats();
+   if (error) toast.show(error.message, { type: "danger", duration: 10000 });
 
     //fetch all news
     const { isLoading: newsLoading, error: newsError, data: newsData, isFetching: newsIsFetching, refetch: newsRefetch } = fetchAllHomeScreenNews();
     if (newsError) toast.show(newsError.message, { type: "danger", duration: 10000 });
-
-
-
-
 
     const openLink = async (url) => {
         await Linking.openURL(url);
@@ -95,9 +92,6 @@ export default function BuyerDashboard(props) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
-            {/*<ImageBackground source={require('assets/home/bg.webp')} style={styles.topProfileBg}*/}
-            {/*                 imageStyle={styles.topProfileBgImg}>*/}
-            {/*</ImageBackground>*/}
             <ScrollView style={styles.main} contentContainerStyle={styles.mainContent}>
                 <View style={styles.mainWrapper}>
                     <View style={styles.sliderWrapper}>
@@ -117,6 +111,7 @@ export default function BuyerDashboard(props) {
                             loop={true}
                         />
                     </View>
+                    <Text style={styles.heading} >{translate(appLanguage, "Total Supplier")}: {data?.data?.supplier} </Text>
 
                     <View style={styles.iconsWrapper}>
                         <Image
@@ -128,53 +123,7 @@ export default function BuyerDashboard(props) {
                     <View>
                         <ProductList navigation={props.navigation} />
                     </View>
-                    {/* <View style={styles.middleBanner}>
-                        <View style={styles.bannerTxtWrapper}>
-                            <Text style={styles.middleBannerTitle}>{translate(appLanguage, "What's New")}</Text>
-                            <Text style={styles.middleBannerSubTitle}>{translate(appLanguage, "Explore daily")}<Text style={{ color: appConstant.themePrimaryColor }}>{` ${translate(appLanguage, "Farmpreneur Mushroom")}`}</Text> </Text>
-                        </View>
-                        <Carousel
-                            data={news}
-                            renderItem={({ item, activeBannerSlide }) => {
-                                return (
-                                    <TouchableOpacity style={styles.newsWrapper} onPress={() => props.navigation.navigate('News', { screen: "NewsDetail", params: { id: item.id } })}>
-                                        <Image source={{ uri: item.featured_image_url }} key={item.id} style={styles.whatNewImg} />
-                                        <View style={styles.newsContent}>
-                                            <Text style={styles.newsTitle}>{item.title}</Text>
-                                            <View style={styles.cardCoursePill}>
-                                                <AntDesign name="calendar" size={12} color={"#fff"} />
-                                                <Text style={styles.cardCoursePillTxt}>{formatDate(item.created_at)}</Text>
-                                            </View>
-                                        </View>
-                                    </TouchableOpacity>
-                                )
-                            }}
-                            sliderWidth={windowWidth}
-                            itemWidth={windowWidth}
-                            onSnapToItem={(index) => setActiveBannerSlide(index)}
-
-                        />
-                        {news?.length == 0 && <InfoCard pb={30} type={"notFound"} message={"No news found."} imgSize={70} />}
-                        <View style={{ position: "absolute", bottom: -10, width: "100%" }}>
-                            <Pagination
-                                dotsLength={news?.length}
-                                activeDotIndex={activeBannerSlide}
-                                containerStyle={{ backgroundColor: 'transparent', paddingVertical: 20, }}
-                                dotStyle={{
-                                    width: 10,
-                                    height: 10,
-                                    borderRadius: 5,
-                                    marginHorizontal: 8,
-                                    backgroundColor: appConstant.themePrimaryColor
-                                }}
-                                inactiveDotStyle={{
-                                    // Define styles for inactive dots here
-                                }}
-                                inactiveDotOpacity={0.4}
-                                inactiveDotScale={0.6}
-                            />
-                        </View>
-                    </View> */}
+                   
                 </View>
             </ScrollView>
             {(newsLoading || newsIsFetching || bannerLoading || bannerIsFetching) && (<Loader visible={true} />)}
@@ -192,7 +141,14 @@ const styles = StyleSheet.create({
     iconsWrapper: {
         display: 'flex',
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+    },
+    heading: {
+        color: "#333",
+        fontWeight: "700",
+        fontSize: 19,
+        backgroundColor:appConstant.themePrimaryLightColor,
+        padding:20
     },
     main: {
         flex: 1,
@@ -211,7 +167,6 @@ const styles = StyleSheet.create({
         opacity: 1
     },
     sliderWrapper: {
-
     },
     productImg: {
         height: 115,

@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     heading: {
-        color: "#333",
+        color: appConstant.themeSecondaryColor,
         fontWeight: "700",
         fontSize: 19,
         backgroundColor:appConstant.themePrimaryLightColor,

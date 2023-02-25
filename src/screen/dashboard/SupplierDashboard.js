@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     heading: {
-        color: "#333",
+        color: appConstant.themeSecondaryColor,
         fontWeight: "700",
         fontSize: 19,
         padding:20,

@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     contactBtn: {
+        width:110,
         position: "absolute",
         right: -43,
         bottom: 150,
@@ -205,8 +206,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffffff",
         color: "#0e5d82",
         fontWeight: "bold",
-        fontSize: 16,
-        paddingHorizontal: responsiveWidth(5),
+        fontSize: 14,
+        textAlign:"center",
         paddingVertical: responsiveHeight(1),
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,

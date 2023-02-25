@@ -54,9 +54,7 @@ export default function OrderList({ navigation }) {
                     <Text style={styles.orderPriceTxt}>{translate(appLanguage, "Total")}</Text>
                     <Text style={styles.orderPrice}>₹ {total}</Text>
                 </View>
-                <View style={styles.orderPriceWrapper}>
                 <Text style={[styles.status, { color: status == "PROCESSING" || status == "DELIVERED" ||status == "COMPLETED"  ? "green" : "red", }]}>{status}</Text>
-                </View>
                 </View>
             </TouchableOpacity>
         )
@@ -92,6 +90,7 @@ const styles = StyleSheet.create({
         position:"relative",
         flexDirection: "row",
         alignItems: "flex-start",
+        justifyContent:"flex-start",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -155,9 +154,6 @@ const styles = StyleSheet.create({
         bottom:1,
         right:1,
         padding:5,
-        borderRadius:5,
-        borderWidth:1,
-        borderColor:"lightgray",
         flexGrow: 0,
         fontWeight:"bold",
         fontSize: 11,

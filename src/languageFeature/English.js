@@ -30,7 +30,8 @@ const welcomeScreen = {
     "Total Supplier":"Total Supplier",
     "ASSOCIATED WITH":"ASSOCIATED WITH",
     "Govt. Sector":"Govt. Sector",
-    "Private Sector":"Private Sector"
+    "Private Sector":"Private Sector",
+    "Supported by":"Supported by: Horticulture Dept. (UK)"
 }
 const bankScreen = {
     "Account Holder Name": "Account Holder Name",

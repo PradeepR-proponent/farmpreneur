@@ -155,7 +155,8 @@ const WelcomeScreen = (props) => {
                             <View style={styles.textArea}>
                                 <View >
                                     <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(3), fontWeight: "700" }]}>{translate(appLanguage, "Welcome to")}</Text>
-                                    <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")} </Text>
+                                    <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")}</Text>
+                                    <Text style={styles.subText}>{translate(appLanguage, "Supported by")}</Text>
                                 </View>
                                 <View style={styles.textWrapper}>
                                     <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
@@ -177,14 +178,18 @@ const WelcomeScreen = (props) => {
                                             </Button>
                                         ))
                                     }
-                                    <TouchableOpacity style={styles.loginBtnWrapper} onPress={() => props.navigation.navigate('SignIn')}>
-                                        <Image style={styles.loginBtnImg} source={require('../../assets/icon/login-button.png')} />
-                                        <Text style={styles.loginBtnText}>{translate(appLanguage, "Login")}</Text>
-                                    </TouchableOpacity>
+                                    <View style={styles.loginBtnWrapper} >
+                                        <TouchableOpacity onPress={() => props.navigation.navigate('SignIn')}>
+                                            <Image style={styles.loginBtnImg} source={require('../../assets/icon/login-button.png')} />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={() => props.navigation.navigate('SignIn')}>
+                                            <Text style={styles.loginBtnText}>{translate(appLanguage, "Login")}</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             </View>
                             <Image style={styles.overlayImg} resizeMethod={"resize"} source={require('../../assets/icon/footer-img3.png')} />
-                            <Text style={styles.contactBtn} onPress={() =>props.navigation.navigate('contactus')}  > {translate(appLanguage, "Contact Us")}</Text>
+                            <Text style={styles.contactBtn} onPress={() => props.navigation.navigate('contactus')}  > {translate(appLanguage, "Contact Us")}</Text>
                         </View>
                     </SafeAreaView>
                 </LinearGradient>
@@ -198,7 +203,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     contactBtn: {
-        width:110,
+        width: 110,
         position: "absolute",
         right: -43,
         bottom: 150,
@@ -207,7 +212,7 @@ const styles = StyleSheet.create({
         color: "#0e5d82",
         fontWeight: "bold",
         fontSize: 14,
-        textAlign:"center",
+        textAlign: "center",
         paddingVertical: responsiveHeight(1),
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
@@ -270,8 +275,16 @@ const styles = StyleSheet.create({
         color: "white",
         textAlign: "center",
         fontFamily: appConstant.baseFontFamily,
-        fontSize: 16,
+        fontSize: 14,
     },
+subText:{
+    color: "white",
+    fontFamily: appConstant.baseFontFamily,
+    fontSize: 14,
+    fontWeight:'bold',
+    color: appConstant.themePrimaryColor
+},
+
     btnItem: {
         paddingHorizontal: 10,
         width: "50%",
@@ -314,7 +327,7 @@ const styles = StyleSheet.create({
     },
     overlayImg: {
         width: "100%",
-        height:"20%",
+        height: "20%",
         resizeMode: "cover",
         backgroundColor: "#0d6999",
     },

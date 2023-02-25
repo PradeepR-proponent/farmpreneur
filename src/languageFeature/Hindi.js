@@ -31,7 +31,8 @@ const welcomeScreen = {
     "AGRO": "Agro Farmpreneur Solution Private Limited",
     "ASSOCIATED WITH":"सहयोग",
     "Govt. Sector":"सरकारी क्षेत्र",
-    "Private Sector":"प्राइवेट सेक्टर"
+    "Private Sector":"प्राइवेट सेक्टर",
+    "Supported by":"सहकार्यता : उद्यान विभाग (उत्तराखंड)"
 }
 const bankScreen = {
     "Account Holder Name": "खाता धारक का नाम",

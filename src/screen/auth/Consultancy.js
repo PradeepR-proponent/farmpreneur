@@ -9,7 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { useSelector } from "react-redux";
-import user from "../../assets/images/user.jpg";
+import user from "../../assets/icon/DrHarsh.jpg";
 import { translate } from '../../languageFeature'
 
 

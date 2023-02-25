@@ -28,10 +28,10 @@ const ConsultancyExperts = ({ route }) => {
         }}
       >
         <View style={styles.userProfileSection}>
-          {/* <Image source={data.image} style={styles.userImage} /> */}
+          <Image source={data.image} style={styles.userImage} />
           <View>
             <Text style={styles.textStyle}>{data.name}</Text>
-            <Text style={styles.textStyle}>{data.title}</Text>
+            <Text style={styles.textStyle} numberOfLines={2} >{data.title}</Text>
           </View>
         </View>
 
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   },
 
   textStyle: {
+    width:220,
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 8,
@@ -87,5 +88,6 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
     borderRadius: 50,
+    marginRight:10
   },
 });

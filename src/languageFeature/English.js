@@ -27,7 +27,10 @@ const welcomeScreen = {
     "Resend OTP in": "Resend OTP in ",
     "Category":"Category",
     "Total Buyers":"Total Buyers",
-    "Total Supplier":"Total Supplier"
+    "Total Supplier":"Total Supplier",
+    "ASSOCIATED WITH":"ASSOCIATED WITH",
+    "Govt. Sector":"Govt. Sector",
+    "Private Sector":"Private Sector"
 }
 const bankScreen = {
     "Account Holder Name": "Account Holder Name",

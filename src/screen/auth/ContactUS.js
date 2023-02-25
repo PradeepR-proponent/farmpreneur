@@ -6,7 +6,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   Pressable,
-  Linking,
+  Linking, Image,ScrollView
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
@@ -18,6 +18,9 @@ import {
 } from "@expo/vector-icons";
 import { translate } from '../../languageFeature'
 import { useSelector } from "react-redux";
+import s1 from '../../assets/icon/Govt-Sector01.png'
+import s2 from '../../assets/icon/Pvt-Sector01.png'
+import s3 from '../../assets/icon/Pvt-Sector02.png'
 
 
 const ContactUS = (props) => {
@@ -100,12 +103,14 @@ const ContactUS = (props) => {
   ];
 
   return (
+    
     <SafeAreaView style={{ ...styles.container, width: windowWidth, height: windowHeight }} >
+      <ScrollView>
+
+
       <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
       <View style={styles.textArea}>
-        <Text style={styles.mainheadingStyle}>
-          {translate(appLanguage, "AGRO")}
-        </Text>
+        <Text style={styles.mainheadingStyle}>Agro Farmpreneur Solution Pvt Ltd</Text>
       </View>
       <View style={styles.textArea}>
         <View style={styles.flexSection}>
@@ -135,15 +140,6 @@ const ContactUS = (props) => {
             <Text style={styles.text}>+91 8265999909</Text>
           </Pressable>
         </View>
-
-        <View style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
-          <Pressable style={styles.btn} onPress={() => props.navigation.navigate('Training')} >
-            <Text style={[styles.text, styles.whiteText]}>{translate(appLanguage, "Training")}</Text>
-          </Pressable>
-          <Pressable style={styles.btn} onPress={() => props.navigation.navigate('consultancy')} >
-            <Text style={[styles.text, styles.whiteText]}>{translate(appLanguage, "Consultancy")}</Text>
-          </Pressable>
-        </View>
       </View>
 
       <View style={styles.textArea}>
@@ -158,6 +154,16 @@ const ContactUS = (props) => {
 
         <Text style={styles.headingStyle}>{translate(appLanguage, "Farmpreneur Club")}</Text>
       </View>
+      <View style={styles.view}>
+        <Text style={styles.mainHeadingStyle}>{translate(appLanguage,"ASSOCIATED WITH")}:</Text>
+        <Text style={[styles.headingStyle,{ marginTop:10,}]} >{translate(appLanguage, "Govt. Sector")}:</Text>
+        <Image style={styles.sector} source={s1} />
+        <Text style={[styles.headingStyle,{ marginTop:10,}]}>{translate(appLanguage, "Private Sector")}:</Text>
+        <Image style={styles.sector} source={s2} />
+        <Image style={styles.sector} source={s3} />
+      </View>
+      </ScrollView>
+
     </SafeAreaView>
   );
 };
@@ -165,14 +171,23 @@ const ContactUS = (props) => {
 export default ContactUS;
 
 const styles = StyleSheet.create({
-  btn: {
-    width: 120,
-    backgroundColor: "green",
-    marginBottom: 10,
-    marginRight: 20,
-    padding: 5,
-    borderRadius: 5
+view:{
+  marginTop:10,
+borderTopWidth:1,
+borderTopColor: "#0b5b80",
+},
+  sector: {
+    width: '100%',
+    height: 80,
+    marginTop:10
   },
+  mainHeadingStyle: {
+    color: "#519f2e",
+    fontWeight: "700",
+    fontSize: 19,
+    marginTop: 10,
+  },
+
   whiteText: {
     color: "white",
     fontWeight: "bold",
@@ -189,8 +204,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   textArea: {
-    marginBottom: 20,
-    marginTop: 20,
+    marginTop: 10
   },
   headingStyle: {
     fontWeight: "bold",
@@ -199,10 +213,11 @@ const styles = StyleSheet.create({
   },
   mainheadingStyle: {
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 20,
     color: "#0b5b80",
-    borderBottomColor:"#0b5b80",
-    borderBottomWidth:2
+    borderBottomWidth: 1,
+    borderBottomColor: "#0b5b80",
+    paddingBottom:10,
   },
   textStyle: {
     fontSize: 16,

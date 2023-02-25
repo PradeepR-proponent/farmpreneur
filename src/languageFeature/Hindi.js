@@ -29,6 +29,9 @@ const welcomeScreen = {
     "Total Buyers":"कुल खरीदार",
     "Total Supplier":"कुल विक्रेता",
     "AGRO": "Agro Farmpreneur Solution Private Limited",
+    "ASSOCIATED WITH":"सहयोग",
+    "Govt. Sector":"सरकारी क्षेत्र",
+    "Private Sector":"प्राइवेट सेक्टर"
 }
 const bankScreen = {
     "Account Holder Name": "खाता धारक का नाम",

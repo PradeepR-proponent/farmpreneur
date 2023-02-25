@@ -116,10 +116,10 @@ export default function Membership(props) {
             <ScrollView style={styles.main} contentContainerStyle={styles.mainContent}>
                 <View style={styles.card}>
                     <Image style={styles.cardImg} source={NotApproved} />
-                    <Text style={styles.cardPriceTxt}>Membership @ ₹10</Text>
+                    <Text style={styles.cardPriceTxt}>Membership @ ₹365</Text>
                     <Text style={styles.cardTxt}>Dear User, Please complete your payment to become a member.</Text>
                     <TouchableOpacity style={styles.addCartBtn} onPress={getMembership}>
-                        <Text style={styles.addCartBtnTxt}>Pay ₹10</Text>
+                        <Text style={styles.addCartBtnTxt}>Pay ₹365</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   Pressable,
-  Linking, Image,ScrollView
+  Linking, Image, ScrollView
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
@@ -103,65 +103,74 @@ const ContactUS = (props) => {
   ];
 
   return (
-    
+
     <SafeAreaView style={{ ...styles.container, width: windowWidth, height: windowHeight }} >
       <ScrollView>
 
 
-      <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
-      <View style={styles.textArea}>
-        <Text style={styles.mainheadingStyle}>Agro Farmpreneur Solution Pvt Ltd</Text>
-      </View>
-      <View style={styles.textArea}>
-        <View style={styles.flexSection}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Web")}: </Text>
-          <View>
-            <Pressable onPress={() => Linking.openURL("https://farmpreneur.in/")}>
-              <Text style={styles.text}>www.farmpreneur.in</Text>
+        <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
+        <View style={styles.textArea}>
+          <Text style={styles.mainheadingStyle}>Agro Farmpreneur Solution Pvt Ltd</Text>
+        </View>
+        <View style={styles.textArea}>
+          <View style={styles.flexSection}>
+            <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Web")}: </Text>
+            <View>
+              <Pressable onPress={() => Linking.openURL("https://farmpreneur.in/")}>
+                <Text style={styles.text}>www.farmpreneur.in</Text>
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.flexSection}>
+            <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Mail")}: </Text>
+            <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
+              <Text style={styles.text}>
+                farmpreneur.club@gmail.com
+              </Text>
             </Pressable>
           </View>
         </View>
 
-        <View style={styles.flexSection}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Mail")}: </Text>
-          <Pressable onPress={() => Linking.openURL("mailto:farmpreneur.club@gmail.com")}>
-            <Text style={styles.text}>
-              farmpreneur.club@gmail.com
-            </Text>
-          </Pressable>
-        </View>
-      </View>
-
-      <View style={styles.textArea}>
-        <Text style={styles.headingStyle}>{translate(appLanguage, "Contact Number")}</Text>
-        <View style={styles.flexSection}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Business help")}: </Text>
-          <Pressable onPress={() => Linking.openURL("tel:+918265999909")} >
-            <Text style={styles.text}>+91 8265999909</Text>
-          </Pressable>
-        </View>
-      </View>
-
-      <View style={styles.textArea}>
-        <Text style={styles.headingStyle}>{translate(appLanguage, "Social Platform")}:</Text>
-        <View style={styles.flexSection}>
-          {linkData.map((data) => (
-            <Pressable key={data.id} onPress={data.onclick}>
-              {data.icon}
+        <View style={styles.textArea}>
+          <Text style={styles.headingStyle}>{translate(appLanguage, "Contact Number")}</Text>
+          <View style={styles.flexSection}>
+            <Text style={[styles.text, { fontWeight: "bold" }]}>{translate(appLanguage, "Business help")}: </Text>
+            <Pressable onPress={() => Linking.openURL("tel:+918265999909")} >
+              <Text style={styles.text}>+91 8265999909</Text>
             </Pressable>
-          ))}
+          </View>
         </View>
 
-        <Text style={styles.headingStyle}>{translate(appLanguage, "Farmpreneur Club")}</Text>
-      </View>
-      <View style={styles.view}>
-        <Text style={styles.mainHeadingStyle}>{translate(appLanguage,"ASSOCIATED WITH")}:</Text>
-        <Text style={[styles.headingStyle,{ marginTop:10,}]} >{translate(appLanguage, "Govt. Sector")}:</Text>
-        <Image style={styles.sector} source={s1} />
-        <Text style={[styles.headingStyle,{ marginTop:10,}]}>{translate(appLanguage, "Private Sector")}:</Text>
-        <Image style={styles.sector} source={s2} />
-        <Image style={styles.sector} source={s3} />
-      </View>
+        <View style={styles.textArea}>
+          <Text style={styles.headingStyle}>{translate(appLanguage, "Social Platform")}:</Text>
+          <View style={styles.flexSection}>
+            {linkData.map((data) => (
+              <Pressable key={data.id} onPress={data.onclick}>
+                {data.icon}
+              </Pressable>
+            ))}
+          </View>
+
+          <Text style={styles.headingStyle}>{translate(appLanguage, "Farmpreneur Club")}</Text>
+        </View>
+        <View style={styles.view}>
+          <Text style={styles.mainHeadingStyle}>{translate(appLanguage, "ASSOCIATED WITH")}:</Text>
+          <Text style={[styles.headingStyle, { marginTop: 10, }]} >{translate(appLanguage, "Govt. Sector")}:</Text>
+          <View style={styles.imgContainer}>
+            <Image style={styles.sector} source={s1} resizeMode="contain" />
+          </View>
+
+          <Text style={[styles.headingStyle, { marginTop: 10, }]}>{translate(appLanguage, "Private Sector")}:</Text>
+          <View style={styles.imgContainer}>
+          <Image style={styles.sector} resizeMode="contain" source={s2} />
+          </View>
+     
+          <View style={styles.imgContainer}>
+          <Image style={styles.sector} resizeMode="contain" source={s3} />
+          </View>
+         
+        </View>
       </ScrollView>
 
     </SafeAreaView>
@@ -171,15 +180,21 @@ const ContactUS = (props) => {
 export default ContactUS;
 
 const styles = StyleSheet.create({
-view:{
-  marginTop:10,
-borderTopWidth:1,
-borderTopColor: "#0b5b80",
-},
+  view: {
+    marginTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: "#0b5b80",
+  },
+  imgContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    marginTop: 10,
+  },
   sector: {
     width: '100%',
     height: 80,
-    marginTop:10
+    borderWidth: 1
   },
   mainHeadingStyle: {
     color: "#519f2e",
@@ -217,7 +232,7 @@ borderTopColor: "#0b5b80",
     color: "#0b5b80",
     borderBottomWidth: 1,
     borderBottomColor: "#0b5b80",
-    paddingBottom:10,
+    paddingBottom: 10,
   },
   textStyle: {
     fontSize: 16,

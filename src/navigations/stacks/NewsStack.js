@@ -15,7 +15,7 @@ const NewsStack = () => {
             }}
         >
             <Stack.Screen name="NewsList" options={{ headerShown: true, headerTitle: "All News" }} component={NewsList} />
-            <Stack.Screen name="NewsDetail" options={{ headerShown: true, headerTitle: "News" }} component={NewsDetail} />
+            <Stack.Screen name="NewsDetail" options={{ headerShown: true, headerTitle: "" }} component={NewsDetail} />
         </Stack.Navigator>
     );
 }

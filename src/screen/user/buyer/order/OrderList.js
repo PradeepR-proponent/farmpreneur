@@ -89,11 +89,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     itemWrapper: {
-        display:"flex",
-        flexDirection:"row",
-        alignItems:"flex-start",
-        justifyContent:"space-evenly",
+        position:"relative",
+        flexDirection: "row",
+        alignItems: "flex-start",
         shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
@@ -146,8 +149,18 @@ const styles = StyleSheet.create({
         width: 55,
     },
     status: {
+        backgroundColor:"#ffffff",
+        position:"absolute",
+        right:0,
+        bottom:1,
+        right:1,
+        padding:5,
+        borderRadius:5,
+        borderWidth:1,
+        borderColor:"lightgray",
         flexGrow: 0,
-        fontSize: itemBaseFontSize,
+        fontWeight:"bold",
+        fontSize: 11,
         fontFamily: appConstant.baseFontFamily
     },
 });

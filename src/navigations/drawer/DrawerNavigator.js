@@ -106,7 +106,7 @@ const DrawerNavigator = (props) => {
         component={WeatherForcast}
         options={{
           headerShown: true,
-          title: "Weather Forcast"
+          title: ""
         }}
       />
 

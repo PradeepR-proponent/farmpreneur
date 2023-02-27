@@ -103,14 +103,11 @@ const ContactUS = (props) => {
   ];
 
   return (
-
-    <SafeAreaView style={{ ...styles.container, width: windowWidth, height: windowHeight }} >
       <ScrollView>
-
-
+    <SafeAreaView style={{ ...styles.container, width: windowWidth }} >
         <StatusBar style="light" backgroundColor={appConstant.statusBarColor} />
         <View style={styles.textArea}>
-          <Text style={styles.mainheadingStyle}>Agro Farmpreneur Solution Pvt Ltd</Text>
+          <Text style={styles.mainheadingStyle}>Agro Farmpreneur Solution Pvt Ltd.</Text>
         </View>
         <View style={styles.textArea}>
           <View style={styles.flexSection}>
@@ -154,26 +151,27 @@ const ContactUS = (props) => {
 
           <Text style={styles.headingStyle}>{translate(appLanguage, "Farmpreneur Club")}</Text>
         </View>
-        <View style={styles.view}>
-          <Text style={styles.mainHeadingStyle}>{translate(appLanguage, "ASSOCIATED WITH")}:</Text>
-          <Text style={[styles.headingStyle, { marginTop: 10, }]} >{translate(appLanguage, "Govt. Sector")}:</Text>
-          <View style={styles.imgContainer}>
-            <Image style={styles.sector} source={s1} resizeMode="contain" />
-          </View>
-
-          <Text style={[styles.headingStyle, { marginTop: 10, }]}>{translate(appLanguage, "Private Sector")}:</Text>
-          <View style={styles.imgContainer}>
-          <Image style={styles.sector} resizeMode="contain" source={s2} />
-          </View>
-     
-          <View style={styles.imgContainer}>
-          <Image style={styles.sector} resizeMode="contain" source={s3} />
-          </View>
-         
-        </View>
-      </ScrollView>
 
     </SafeAreaView>
+
+<SafeAreaView style={{...styles.container, width: windowWidth}} >
+ <Text style={styles.mainHeadingStyle}>{translate(appLanguage, "ASSOCIATED WITH")}:</Text>
+              <Text style={[styles.headingStyle, { marginTop: 10, }]} >{translate(appLanguage, "Govt. Sector")}:</Text>
+              <View style={styles.imgContainer}>
+                <Image style={styles.sector} source={s1} resizeMode="contain" />
+              </View>
+
+              <Text style={[styles.headingStyle, { marginTop: 10, }]}>{translate(appLanguage, "Private Sector")}:</Text>
+              <View style={styles.imgContainer}>
+              <Image style={styles.sector} resizeMode="contain" source={s2} />
+              </View>
+
+              <View style={styles.imgContainer}>
+              <Image style={styles.sector} resizeMode="contain" source={s3} />
+              </View>
+</SafeAreaView>
+          </ScrollView>
+
   );
 };
 
@@ -186,6 +184,7 @@ const styles = StyleSheet.create({
     borderTopColor: "#0b5b80",
   },
   imgContainer: {
+     height:100,
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -194,7 +193,6 @@ const styles = StyleSheet.create({
   sector: {
     width: '100%',
     height: 80,
-    borderWidth: 1
   },
   mainHeadingStyle: {
     color: "#519f2e",
@@ -202,7 +200,6 @@ const styles = StyleSheet.create({
     fontSize: 19,
     marginTop: 10,
   },
-
   whiteText: {
     color: "white",
     fontWeight: "bold",

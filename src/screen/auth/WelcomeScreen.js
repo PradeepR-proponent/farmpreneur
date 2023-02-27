@@ -158,10 +158,7 @@ const WelcomeScreen = (props) => {
                                     <Text style={[styles.textItemMain, { fontSize: responsiveFontSize(4), }]}>{translate(appLanguage, "FARMPRENEUR Club")}</Text>
                                     <Text style={styles.subText}>{translate(appLanguage, "Supported by")}</Text>
                                 </View>
-                                <View style={styles.textWrapper}>
-                                    <Text style={styles.textItem}>{translate(appLanguage, "Register")}</Text>
-                                </View>
-                                <View style={styles.btnWrapper}>
+                                <View style={[styles.btnWrapper,{marginTop:10}]}>
                                     {
                                         flateListData.map((btnList) => (
                                             <Button

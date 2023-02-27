@@ -5,7 +5,7 @@ import {
   StyleSheet,
   View,
   useWindowDimensions,
-  FlatList,
+  FlatList,ScrollView,
   Pressable,
 } from "react-native";
 import { useSelector } from "react-redux";
@@ -197,13 +197,8 @@ const Consultancy = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <View
-        style={{
-          ...styles.container,
-          width: windowWidth,
-          height: windowHeight,
-        }}
-      >
+    <ScrollView>
+      <View style={{...styles.container,width: windowWidth,height: windowHeight,}}>
         <Text style={styles.textStyle}>{translate(appLanguage, "Consultancy - Expert List:")}</Text>
         <View>
           <Text style={styles.headingStyle}>{translate(appLanguage, "Mushroom Sector:")}</Text>
@@ -264,6 +259,7 @@ const Consultancy = ({ navigation }) => {
           />
         </View>
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

@@ -150,7 +150,8 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontSize: 19,
         backgroundColor:appConstant.themePrimaryLightColor,
-        padding:20
+        paddingLeft:20,
+        paddingVertical:8
     },
     main: {
         flex: 1,

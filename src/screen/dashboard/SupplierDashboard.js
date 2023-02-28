@@ -136,12 +136,20 @@ export default function SupplierDashboard(props) {
                             </View>
                         </Pressable>
                     </View>
-                    <View style={styles.middleBanner}>
+                  
+                </View>
+
+              
+
+            </ScrollView>
+
+            <View style={styles.middleBanner}>
                         <View style={styles.bannerTxtWrapper}>
                             <Text style={styles.middleBannerTitle}>{translate(appLanguage, "What's New")}</Text>
                             <Text style={styles.middleBannerSubTitle}>{translate(appLanguage, "Explore daily")}<Text style={{ color: appConstant.themePrimaryColor }}>{` ${translate(appLanguage, "Farmpreneur Mushroom")}`}</Text> </Text>
                         </View>
-                        {news?.length != 0 && <Carousel
+                        {news?.length != 0 &&
+                         <Carousel
                             data={news}
                             renderItem={({ item, activeBannerSlide }) => {
                                 return (
@@ -164,7 +172,6 @@ export default function SupplierDashboard(props) {
                         />}
                         {news?.length == 0 && <InfoCard pb={30} type={"notFound"} message={"No news found."} imgSize={70} />}
 
-
                         <View style={{ position: "absolute", bottom: -10, width: "100%" }}>
                             <Pagination
                                 dotsLength={news?.length}
@@ -185,8 +192,6 @@ export default function SupplierDashboard(props) {
                             />
                         </View>
                     </View>
-                </View>
-            </ScrollView>
             {(loading || isFetching || newsLoading || newsIsFetching) && (<Loader visible={true} />)}
         </SafeAreaView>
     );
@@ -195,12 +200,14 @@ export default function SupplierDashboard(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+       position:"relative"
     },
     heading: {
         color: appConstant.themeSecondaryColor,
         fontWeight: "700",
         fontSize: 19,
-        padding:20,
+         paddingLeft:20,
+         paddingVertical:8,
         backgroundColor:appConstant.themePrimaryLightColor,
     },
     main: {
@@ -221,8 +228,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexWrap: "wrap",
         backgroundColor: "#fbfbfb",
-        // borderTopRightRadius:50,
-        // borderTopLeftRadius:50,
         padding: 10
     },
     statItem: {
@@ -234,7 +239,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
         padding: 10,
         width: "43%",
@@ -252,15 +256,9 @@ const styles = StyleSheet.create({
     },
     middleBanner: {
         backgroundColor: "#fff",
-        // shadowColor: "#000",
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 3,
-        // },
-        // shadowOpacity: 0.29,
-        // shadowRadius: 4.65,
-        //
-        // elevation: 7,
+       position:"absolute",
+       left:0,
+       bottom:0
     },
     bannerTxtWrapper: {
         padding: 10

@@ -4,13 +4,16 @@ import TrainingList from "screen/training/CourseList";
 import TrainingDetail from "screen/training/CourseDetails";
 import TrainingConfirm from "screen/training/CourseConfirm";
 import InstaWebview from "screen/payment/InstamojoWebView";
+import TrainingHeader from '../../components/TrainingHeader/TrainingHeader';
 
 const DwaerTraningStack = () => {
     const Stack = createStackNavigator();
     return (
         <Stack.Navigator
+           initialRouteName='TrainignList'
         screenOptions={{
             headerMode: 'float',
+            header: (props) => <TrainingHeader {...props} />,
         }}
         >
             <Stack.Screen name="TrainignList" options={{ headerShown: false, headerTitle: "" }} component={TrainingList} />

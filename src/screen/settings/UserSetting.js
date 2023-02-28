@@ -19,6 +19,8 @@ import { LANGUAGE } from '../../_slice/authSlice';
 import appConstant from '../../config/constants';
 import { translate } from '../../languageFeature'
 import * as SecureStore from 'expo-secure-store';
+import { Picker } from "@react-native-picker/picker";
+import { AntDesign } from "@expo/vector-icons";
 
 
 const UserSetting = () => {
@@ -65,16 +67,29 @@ const UserSetting = () => {
     return (<SafeAreaView>
         <View style={{ ...styles.container, width: windowWidth, height: height }} >
 
-            <View style={styles.flexbox}>
+        <View style={styles.flexbox}>
                 <Text style={styles.textHeading}>
                     {translate(appLanguage, "Choose Language")}
                 </Text>
-                <SelectBox
-                    options={appConstant.Languages}
-                    setSelected={setSelected}
-                    defaultvalue={selected}
-                />
             </View>
+        <View style={[styles.pickerWrapper]}>
+                <Picker
+                    selectedValue={selected}
+                    style={[styles.picker]}
+                    itemStyle={styles.pickerItem}
+                    dropdownIconColor="#ffffff"
+                    onValueChange={(itemValue) =>
+                        setSelected(itemValue)
+                    }
+                >
+                    {appConstant.Languages.map((c) => <Picker.Item label={c} value={c} />)}
+                </Picker>
+                <View style={styles.pickerIcon}>
+                    <AntDesign name="downcircleo" size={24} color={appConstant.themePrimaryColor} />
+                </View>
+            </View>
+
+
         </View>
     </SafeAreaView>
     )
@@ -96,7 +111,29 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     textHeading: {
-        color: "#333",
+        color: appConstant.themeSecondaryColor,
+        fontWeight: "700",
         fontSize: 16,
+        paddingVertical:8
+    },
+
+    pickerWrapper: {
+        marginTop: 20,
+        overflow: 'hidden',
+        backgroundColor: appConstant.themePrimaryLightColor,
+        borderRadius: 10,
+        padding: 0
+    },
+    pickerIcon: {
+        position: "absolute",
+        top: 13,
+        right: 12,
+        bottom: 0
+    },
+    picker: {
+
+    },
+    pickerItem: {
+        fontWeight: "700",
     }
 })

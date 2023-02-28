@@ -29,6 +29,7 @@ const Consultancy = ({ navigation }) => {
       image: user,
       name: translate(appLanguage, "Dr. N.S.K Harsh"),
       title: translate(appLanguage, "(Retd. Scientist - G, FRI, Dehradun)"),
+      title2:translate(appLanguage, "Retd"),
       onClick: (data) => {
         navigation.navigate("Consultant", { data: data });
       },
@@ -79,21 +80,31 @@ const Consultancy = ({ navigation }) => {
         return
       },
     },
-    {
-      sector: translate(appLanguage,"Ganoderma and other Mushrooms"),
-      id: "6",
-      description: translate(appLanguage, "Expert_descrition"),
-      image: user,
-      name: translate(appLanguage, "Mr. Navdeep Rana"),
-      title: translate(appLanguage, "(Expert - Mushroom/Honey)"),
-
-      onClick: (data) => {
-        return
-      },
-    },
+//    {
+//      sector: translate(appLanguage,"Ganoderma and other Mushrooms"),
+//      id: "6",
+//      description: translate(appLanguage, "Expert_descrition"),
+//      image: user,
+//      name: translate(appLanguage, "Mr. Navdeep Rana"),
+//      title: translate(appLanguage, "(Expert - Mushroom/Honey)"),
+//
+//      onClick: (data) => {
+//        return
+//      },
+//    },
   ];
 
   const multipleExpertList = [
+   {
+        id: "3",
+        description: translate(appLanguage, "Expert_descrition"),
+        image: user,
+        name: translate(appLanguage, "Mr Durga Verma"),
+        title: translate(appLanguage, "(Business Maker, Motivational Speaker)"),
+        onClick: (data) => {
+          return
+        },
+      },
     {
       id: "1",
       description: translate(appLanguage, "Expert_descrition"),
@@ -114,22 +125,13 @@ const Consultancy = ({ navigation }) => {
         return
       },
     },
-    {
-      id: "3",
-      description: translate(appLanguage, "Expert_descrition"),
-      image: user,
-      name: translate(appLanguage, "Mr Durga Verma"),
-      title: translate(appLanguage, "(Business Maker, Motivational Speaker)"),
-      onClick: (data) => {
-        return
-      },
-    },
+
     {
       id: "4",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
-      name: translate(appLanguage, "Dr. Himanshu Bana"),
-      title: translate(appLanguage, "(Scientist, IIT Roorkee)"),
+      name: translate(appLanguage, "Mr. Amarpreet S Chawala"),
+      title: translate(appLanguage, "Business Maker & Mentor"),
       onClick: (data) => {
         return
       },
@@ -151,8 +153,8 @@ const Consultancy = ({ navigation }) => {
       id: "2",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
-      name: translate(appLanguage, "Mr. Kamal Sharma"),
-      title: translate(appLanguage, "(Digital Expert, Uttarakhand)"),
+      name: translate(appLanguage, "Mr. Sagar Rai"),
+      title: translate(appLanguage, "Business, Uttarakhand"),
 
       onClick: (data) => {
         return
@@ -175,13 +177,24 @@ const Consultancy = ({ navigation }) => {
       id: "1",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
-      name: translate(appLanguage, "Miss Radha Upadhayay"),
-      title: translate(appLanguage, "(Pursuing PHD, G.B Pant)"),
+      name: translate(appLanguage, "Mr. Navdeep Rana"),
+      title: translate(appLanguage, "(Expert - Mushroom/Honey)"),
 
       onClick: (data) => {
         return
       },
     },
+      {
+          id: "2",
+          description: translate(appLanguage, "Expert_descrition"),
+          image: user,
+          name: translate(appLanguage, "Mr. Shubham Rana"),
+          title: translate(appLanguage, "Expert – Bee Honey"),
+
+          onClick: (data) => {
+            return
+          },
+        },
     {
       id: "2",
       description: translate(appLanguage, "Expert_descrition"),

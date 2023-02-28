@@ -113,6 +113,14 @@ const bankScreen = {
     "Expert_descrition":
      "He has 44 years of research experience on fungi;\nRetired as Scientist-G & Head, at Forest Pathology\nDivision and Group Coordinator (Research) and Dean (Research) in Forest Research Institute, Dehradun, India. Worked as International Forest Pathology (Disease) Specialist for Lao PDR in an Asian Development Board funded project 2019-2021. He has 200 research papers published in national and international journals, authored 8 books and presented 104 papers in Seminars and Conferences. He has guided 33 students for PHD. degree and besides > 100 students from various universities of India for their M. Sc. dissertation work.",
     "Sector:": "Sector:",
+    "Retd":"(Retd. Scientist - G, Forest Pathology Division, Forest Research Institute - FRI, Dehradun)",
+    "Mr. Amarpreet S Chawala" :"Mr. Amarpreet S Chawala",
+
+"Business Maker & Mentor":"(Business Maker & Mentor)",
+"Mr. Shubham Rana":"Mr. Shubham Rana",
+"Expert – Bee Honey":"(Expert – Bee Honey)",
+"Mr. Sagar Rai":"Mr. Sagar Rai",
+"Business, Uttarakhand":"(Business, Uttarakhand)",
     "Mail Id:": "Mail Id:",
     "Contact Number:": "Contact Number:",
     "Timming For discussion:": "Timming For discussion:",

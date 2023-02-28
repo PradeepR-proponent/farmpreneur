@@ -31,7 +31,7 @@ const ConsultancyExperts = ({ route }) => {
           <Image source={data.image} style={styles.userImage} />
           <View>
             <Text style={styles.textStyle}>{data.name}</Text>
-            <Text style={styles.textStyle} numberOfLines={2} >{data.title}</Text>
+            <Text style={styles.textStyle} numberOfLines={4} >{data.title2}</Text>
           </View>
         </View>
 

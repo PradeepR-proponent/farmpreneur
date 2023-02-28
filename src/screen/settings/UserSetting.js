@@ -81,6 +81,7 @@ const UserSetting = () => {
                     onValueChange={(itemValue) =>
                         setSelected(itemValue)
                     }
+                    mode="dropdown"
                 >
                     {appConstant.Languages.map((c) => <Picker.Item label={c} value={c} />)}
                 </Picker>
@@ -122,7 +123,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: appConstant.themePrimaryLightColor,
         borderRadius: 10,
-        padding: 0
+        padding: 0,
+        position:"relative"
     },
     pickerIcon: {
         position: "absolute",

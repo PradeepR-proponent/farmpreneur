@@ -54,6 +54,7 @@ export default function ProductList({ navigation }) {
                     onValueChange={(itemValue) =>
                         setSelectedCategories(itemValue)
                     }
+                    mode="dropdown"
                 >
                     {categories.map((c) => <Picker.Item label={c} value={c} />)}
                 </Picker>

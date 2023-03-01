@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Pressable,
   useWindowDimensions,
-  Image,
+  Image,ScrollView,
   PermissionsAndroid,
   geolocation,
 } from "react-native";
@@ -141,6 +141,7 @@ const WeatherForcast = () => {
   }, [location]);
 
   return (
+    <ScrollView>
     <View
       style={{
         ...styles.mainContainer,
@@ -255,7 +256,9 @@ const WeatherForcast = () => {
       ) : (
         <Text style={styles.text}> No data </Text>
       )}
+
     </View>
+    </ScrollView>
   );
 };
 
@@ -263,7 +266,6 @@ export default WeatherForcast;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    borderWidth: 1,
     backgroundColor: "#fff",
     padding: 20,
   },

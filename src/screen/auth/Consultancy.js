@@ -196,7 +196,7 @@ const Consultancy = ({ navigation }) => {
           },
         },
     {
-      id: "2",
+      id: "3",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
       name: translate(appLanguage, "Mr. Chintamani"),
@@ -257,7 +257,7 @@ const Consultancy = ({ navigation }) => {
             keyExtractor={(item) => item.id}
           />
         </View>
-        <View>
+        <View style={{paddingBottom:20}} >
           <Text style={styles.headingStyle}>{translate(appLanguage, "Agriculture expert:")}</Text>
           <FlatList
             data={agricutureExpertList}

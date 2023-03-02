@@ -96,7 +96,7 @@ const Consultancy = ({ navigation }) => {
 
   const multipleExpertList = [
    {
-        id: "3",
+        id: "1",
         description: translate(appLanguage, "Expert_descrition"),
         image: user,
         name: translate(appLanguage, "Mr Durga Verma"),
@@ -106,7 +106,7 @@ const Consultancy = ({ navigation }) => {
         },
       },
     {
-      id: "1",
+      id: "2",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
       name: translate(appLanguage, "Miss Shikha Sharma"),
@@ -116,7 +116,7 @@ const Consultancy = ({ navigation }) => {
       },
     },
     {
-      id: "2",
+      id: "3",
       description: translate(appLanguage, "Expert_descrition"),
       image: user,
       name: translate(appLanguage, "Mr. Nitesh Kaushik"),

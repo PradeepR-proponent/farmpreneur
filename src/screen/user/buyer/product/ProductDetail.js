@@ -88,25 +88,13 @@ export default function ProductDetail(props) {
                     <View style={styles.detailsWrapper}>
 
                         <View style={styles.priceWrapper}>
-                            {/* <View style={styles.productCounter}>
-                                <TouchableOpacity>
-                                    <AntDesign name="minus" size={15} color={"#000"}/>
-                                </TouchableOpacity>
-                                <Text style={styles.itemCount}>0</Text>
-                                <TouchableOpacity>
-                                    <AntDesign name="plus" size={15} color={"#000"}/>
-                                </TouchableOpacity>
-                            </View> */}
                             <Text style={styles.productTitle}>{product?.name}</Text>
-                            <Text style={styles.priceTxt}>₹{product?.price}</Text>
+                            <Text style={styles.priceTxt}>₹{product?.price} /{product?.unit}</Text>
                         </View>
 
-                        {/* <Text style={styles.productDescHead}>Product Description</Text> */}
                         <Text style={styles.productDesc}>{product?.description}</Text>
                         <View style={styles.addCartWrapper}>
-                            {/* <View style={styles.favouriteWrapper}>
-                                <AntDesign name="heart" size={30} color={appConstant.themePrimaryColor}/>
-                            </View> */}
+
                             <TouchableOpacity style={styles.addCartBtn} onPress={addToCart}>
                                 <Text style={styles.addCartBtnTxt}>{translate(appLanguage, "Add to Cart")}</Text>
                             </TouchableOpacity>

@@ -21,7 +21,7 @@ export default function ProductList(props) {
     //fetch prodcuts
     const { isLoading: loading, error, data, isFetching, refetch } = fetchAllProducts();
     //show fetch and create status
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         setProducts(data?.data);
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     },
     itemTitle: {
         fontFamily: appConstant.productBoldFamily,
-        fontSize: 20,
+        fontSize: 16,
         marginBottom: 7
     },
     itemTags: {

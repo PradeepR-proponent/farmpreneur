@@ -18,7 +18,7 @@ export default function OrderList({ navigation }) {
 
     //fetch prodcuts
     const { isLoading: loading, error, data, isFetching, refetch } = fetchAllBuyerOrders();
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     const handleOrderClick = (id) => {
         if (id)

@@ -12,7 +12,7 @@ export default function Membership(props) {
 
     //fetch member data
     // const { isLoading: loading, error, data, isFetching, refetch } = fetchUserMembership();
-    // if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    // if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     //get and set member data
     // React.useEffect(() => {

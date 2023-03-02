@@ -62,11 +62,11 @@ export default function BuyerDashboard(props) {
 
    //fetch member data
    const { isLoading: loading, error, data, isFetching, refetch } = fetchSupplierStats();
-   if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+   if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     //fetch all news
     const { isLoading: newsLoading, error: newsError, data: newsData, isFetching: newsIsFetching, refetch: newsRefetch } = fetchAllHomeScreenNews();
-    if (newsError) toast.show(newsError.message, { type: "danger", duration: 10000 });
+    if (newsError) toast.show(newsError.message, { type: "danger", duration: 2000 });
 
     const openLink = async (url) => {
         await Linking.openURL(url);
@@ -88,7 +88,7 @@ export default function BuyerDashboard(props) {
 
     useEffect(() => {
         getBanner().then((res) => setBanner(res.data)).catch((error) => {
-            toast.show(error.message, { type: "danger", duration: 10000 })
+            toast.show(error.message, { type: "danger", duration: 2000 })
         })
     }, [])
     return (

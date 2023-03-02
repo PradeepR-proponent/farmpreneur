@@ -60,9 +60,9 @@ export default function ProductAdd(props) {
     const { isLoading: postLoading, isError: postError, mutate: addProduct } = productMutation;
 
     //show fetch and create status
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
-    if (userError) toast.show(userError.message, { type: "danger", duration: 10000 });
-    if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
+    if (userError) toast.show(userError.message, { type: "danger", duration: 2000 });
+    if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 2000 });
 
     const getItem = () => {
         let itemArr = [<Picker.Item label={translate(appLanguage, `Select`)} value={""} />];

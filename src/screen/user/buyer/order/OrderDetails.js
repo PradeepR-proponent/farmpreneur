@@ -20,7 +20,7 @@ export default function OrderDetails(props) {
     const [orderItems, setOrderItems] = React.useState([]);
     //fetch prodcuts
     const { isLoading, error, data, isFetching, refetch } = fetchBuyerOrderById(id);
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         if (data) {

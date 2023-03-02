@@ -33,12 +33,10 @@ const Item = (props) => {
                     {fetchRatings(props.rating)}
                 </View>)}
                 <View style={styles.itemInfo}>
-                    <View style={styles.itemPriceWrapper}>
-                        <Text style={styles.itemPriceTxt}>₹ <Text style={styles.itemPrice}>{props.price}</Text></Text>
-                    </View>
+                         <Text style={styles.itemPrice}>₹ {props.price} /{props.unit}</Text>
                     
                     {props.quantity !== undefined && (<View style={styles.itemAddCartWrapper}>
-                        <Text style={styles.itemCount}>{props.quantity}{props.unit}</Text>
+                        <Text style={styles.itemCount}>{props.quantity}</Text>
                     </View>)}
 
                 </View>
@@ -95,8 +93,9 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     itemPrice: {
+        width:"100%",
         fontFamily: appConstant.productBoldFamily,
-        fontSize: 16
+        fontSize: 14,
     },
     itemAddCartWrapper: {
         flexDirection: "row",
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     },
     itemTitle: {
         fontFamily: appConstant.productBoldFamily,
-        fontSize: 20,
+        fontSize: 16,
         marginBottom: 7
     },
     itemTags: {

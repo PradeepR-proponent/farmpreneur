@@ -39,7 +39,7 @@ const SignUpScreen = (props) => {
     //resend otp mutation
     const otpMutation = resendOtp();
     const { isLoading: postLoading, isError: postError, data: otpData, mutate: resendotp } = otpMutation;
-    if (postError) toast.show(otpMutation.error.message, { type: "danger", duration: 10000 });
+    if (postError) toast.show(otpMutation.error.message, { type: "danger", duration: 2000 });
 
     const handleOtpVerification = () => {
         if (OTP !== "") {

@@ -26,7 +26,7 @@ export default function ProductDetail(props) {
 
     //fetch products
     const { isLoading: loading, error, data: productData, isFetching, refetch } = fetchProductById(id);
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
@@ -41,7 +41,7 @@ export default function ProductDetail(props) {
 
     const addToCart = () => {
         dispatch(ADD_CART({ id: product?.id, name: product?.name, image: product?.default_image?.image_url, price: product?.price, unit: product?.unit }));
-        toast.show('Item added to cart successfully', { type: "success", duration: 10000 });
+        toast.show('Item added to cart successfully', { type: "success", duration: 2000 });
     }
 
     const goToCart = () => {

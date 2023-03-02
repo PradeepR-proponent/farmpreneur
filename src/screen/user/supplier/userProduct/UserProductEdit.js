@@ -35,8 +35,8 @@ export default function ProductAdd(props) {
     const { isLoading: postLoading, isError: postError, mutate: updateProduct } = productMutation;
 
     //show fetch and create status
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
-    if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
+    if (postError) toast.show(productMutation.error.message, { type: "danger", duration: 2000 });
     React.useEffect(() => {
         setPriceHigh(product?.data[0]?.high_price?.toString());
         setPriceLow(product?.data[0]?.low_price?.toString());

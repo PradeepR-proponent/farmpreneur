@@ -30,12 +30,12 @@ export default function Membership(props) {
 
     //fetch user
     // const { isLoading: loading, error, data, isFetching, refetch } = fetchUserById(user?.id);
-    // if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    // if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     //get pay link
     const paymentMutation = getSubPayLink();
     const { isLoading, isError, data: responseData, mutate: getLink } = paymentMutation;
-    if (isError) toast.show(paymentMutation.error.message, { type: "danger", duration: 10000 });
+    if (isError) toast.show(paymentMutation.error.message, { type: "danger", duration: 2000 });
 
     const getMembership = () => {
         getLink({
@@ -64,7 +64,7 @@ export default function Membership(props) {
                 .then((res) => res.data)
                 .then(r => { setLoading(false); setData(r); })
                 .catch(e => {
-                    setLoading(false); toast.show(e.message, { type: "danger", duration: 10000 });
+                    setLoading(false); toast.show(e.message, { type: "danger", duration: 2000 });
                     console.log('error fetching user in membership', e);
                 });
 

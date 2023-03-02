@@ -28,12 +28,12 @@ export default function CourseConfirm(props) {
 
     //fetch prodcuts
     const { isLoading: loading, error, data, isFetching, refetch } = fetchCourseById(id);
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     //get pay link
     const paymentMutation = getPayLink();
     const { isLoading, isError, data: responseData, mutate: getLink } = paymentMutation;
-    if (isError) toast.show(paymentMutation.error.message, { type: "danger", duration: 10000 });
+    if (isError) toast.show(paymentMutation.error.message, { type: "danger", duration: 2000 });
 
     const enrollCourse = () => {
         if (name != "" && email != "" && phone != "" && city != "" && address != "") {
@@ -51,7 +51,7 @@ export default function CourseConfirm(props) {
             setName(""); setEmail(""); setPhone(""); setCity(""); setAddress("");
         }
         else {
-            toast.show("All fields are required.Please fill all the fields and try again.", { type: "danger", duration: 10000 });
+            toast.show("All fields are required.Please fill all the fields and try again.", { type: "danger", duration: 2000 });
         }
 
     }

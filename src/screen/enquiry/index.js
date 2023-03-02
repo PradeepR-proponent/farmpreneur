@@ -26,7 +26,7 @@ export default function Enquiry(props) {
     const enquiryMutation = createEnquiry();
     const [isLoading, setisLoading] = React.useState(false)
 
-    // if (isError) toast.show(enquiryMutation.error.message, { type: "danger", duration: 10000 });
+    // if (isError) toast.show(enquiryMutation.error.message, { type: "danger", duration: 2000 });
 
     const submitEnquiry = async () => {
         try {
@@ -44,14 +44,14 @@ export default function Enquiry(props) {
                 })
                 if (res.data) {
                     setisLoading(false)
-                    toast.show(res.data.message, { type: "info", duration: 10000 })
+                    toast.show(res.data.message, { type: "info", duration: 2000 })
                     setName(""); setEmail(""); setPhone(""); setSubject(""); setMessage("");
 
                 }
             }
         } catch (error) {
             setisLoading(false)
-            toast.show(error.response.data.message, { type: "danger", duration: 10000 })
+            toast.show(error.response.data.message, { type: "danger", duration: 2000 })
         }
 
     }

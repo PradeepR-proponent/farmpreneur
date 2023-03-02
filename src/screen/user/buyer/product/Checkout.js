@@ -34,7 +34,7 @@ export default function Checkout(props) {
     //add order
     const orderMutation = createOrder();
     const { isLoading, isError, mutate: addOrder } = orderMutation;
-    if (isError) toast.show(orderMutation.error.message, { type: "danger", duration: 10000 });
+    if (isError) toast.show("Order inquiry created, farmer will contact you shortly.", { type: "success", duration: 2000 });
 
     const enquireNow = () => {
         addOrder({

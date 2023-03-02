@@ -21,7 +21,7 @@ export default function CourseList(props) {
 
     //fetch news
     const { isLoading: loading, error, data, isFetching, refetch } = fetchNewsById(id);
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         setNews(data?.data[0]);

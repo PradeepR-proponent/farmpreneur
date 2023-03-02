@@ -94,7 +94,7 @@ const ServiceScreen = (props) => {
     getBanner().then((res) => {
       setBanner(res.data)
     }).catch((error) => {
-      toast.show(error.message, { type: "danger", duration: 10000 })
+      toast.show(error.message, { type: "danger", duration: 2000 })
     })
   }, [])
 

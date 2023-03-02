@@ -26,7 +26,7 @@ export default function ProductList({ navigation }) {
 
     //fetch prodcuts
     const { isLoading: loading, error, data, isFetching, refetch } = fetchAllProducts();
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {

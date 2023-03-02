@@ -21,7 +21,7 @@ export default function EnrolledCourses(props) {
 
     //fetch prodcuts
     const { isLoading: loading, error, data, isFetching ,refetch} = fetchEnrolledCourses();
-    if (error) toast.show(error.message, { type: "danger", duration: 10000 });
+    if (error) toast.show(error.message, { type: "danger", duration: 2000 });
 
     React.useEffect(() => {
         setCourses(data?.data);

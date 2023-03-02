@@ -22,9 +22,9 @@ function getPayLink() {
             onSuccess: (data) => {
                 if (data != undefined) {
                     if (data.error != undefined)
-                        toast.show(data.message, { type: "danger", duration: 10000 });
+                        toast.show(data.message, { type: "danger", duration: 2000 });
                     else {
-                        // toast.show(data.message, { type: "success", duration: 10000 });
+                        // toast.show(data.message, { type: "success", duration: 2000 });
                     }
                 }
             }
@@ -49,9 +49,9 @@ function getSubPayLink() {
             onSuccess: (data) => {
                 if (data != undefined) {
                     if (data.error != undefined)
-                        toast.show(data.message, { type: "danger", duration: 10000 });
+                        toast.show(data.message, { type: "danger", duration: 2000 });
                     else {
-                        // toast.show(data.message, { type: "success", duration: 10000 });
+                        // toast.show(data.message, { type: "success", duration: 2000 });
                     }
                 }
             }

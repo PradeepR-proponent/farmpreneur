@@ -72,8 +72,7 @@ function Root({ navigation }) {
     const toast = useToast();
 
     const logoutInvalid = async () => {
-        ToastAndroid.showWithGravityAndOffset(
-            msg ?? "User logged out",
+        ToastAndroid.showWithGravityAndOffset("User logged out",
             ToastAndroid.LONG,
             ToastAndroid.BOTTOM,
             25,
@@ -116,10 +115,10 @@ function Root({ navigation }) {
                             }
                             setLoading(false);
                         })
-                        .catch(async function (error) {
-                            error = true;
-                            alert('Startup error ', error);
+                        .catch(async function () {
                             setLoading(false);
+                            toast.show('Startup error please login again', { type: "info", duration: 2000 })
+                            logoutInvalid()
                         });
                 }
 

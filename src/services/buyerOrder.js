@@ -58,7 +58,7 @@ function createOrder() {
                         toast.show(data.message, { type: "danger", duration: 2000 });
                     else {
                         dispatch(CLEAR_CART());
-                        toast.show(data.message, { type: "success", duration: 2000 });
+                        toast.show('Order inquiry created, farmer will contact you shortly.', { type: "success", duration: 4000 });
                     }
                 }
             }

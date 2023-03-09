@@ -9,7 +9,7 @@ import Button from "components/Button/Button";
 import axios from "axios";
 import Loader from "components/Loader";
 import ModalMessage from "components/Modal/ModalMessage";
-import { Entypo } from '@expo/vector-icons';
+import { Entypo,AntDesign } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { translate } from '../../languageFeature/index'
 
@@ -25,6 +25,9 @@ const SignUpScreen = (props) => {
     const { userType } = props.route.params;
     const [mobile, setMobile] = React.useState("");
     const [name, setName] = React.useState("");
+    const [selecteProfile, setSelectProfile] = React.useState(false);
+
+
 
     React.useEffect(() => {
         mobile !== "" ? checkExistingUser() : setIsUser("");
@@ -136,7 +139,6 @@ const SignUpScreen = (props) => {
                             {translate(appLanguage, "fill up")}
                         </Text>
                     </View>
-
                     <View style={styles.flexDisplay}>
                         <Entypo
                             name="add-user"
@@ -166,13 +168,13 @@ const SignUpScreen = (props) => {
                         {isUser !== "" && (<Text style={styles.errorTxt}>{isUser}</Text>)}
                         <Button style={styles.loginBtn} title={translate(appLanguage, "Continue")} mode="contained" onPress={() => handleSignupBtn()} />
                     </View>
+
                     <View style={styles.formFooterWrapper}>
                         <View style={[styles.rowWrapper, { marginBottom: 10 }]}>
                             <Text style={styles.loginTxt}>{translate(appLanguage, "Have an account")} ?
-                                <Text style={[styles.textItemLink, styles.textItemLogin]}
+                                <Text style={styles.loginTxt}
                                     onPress={() => { props.navigation.navigate('SignIn', { 'userType': userType }) }}>{` ${translate(appLanguage, "Login")}`}</Text>
                             </Text>
-
                         </View>
                         <View style={styles.rowWrapper}>
                             <Text style={styles.textItemFooter}>{`${translate(appLanguage, "By continuing you agree to")} `}
@@ -180,6 +182,7 @@ const SignUpScreen = (props) => {
                                 <Text style={styles.textItemLink} onPress={() => { alert('clicked') }}> {translate(appLanguage, "privacy policy")}</Text></Text>
                         </View>
                     </View>
+
                 </ScrollView>
                 {isLoading && (<Loader visible={isLoading} />)}
                 {isError !== "" && (<ModalMessage visible={isError !== ""} handleClick={handleError} error={false} errorMsg={isError} />)}
@@ -199,6 +202,7 @@ const styles = StyleSheet.create({
     userIcon: {
         marginRight: 10,
     },
+   
     newRegistration: {
         color: appConstant.themeSecondaryColor,
         fontFamily: appConstant.baseFontFamily,
@@ -255,7 +259,7 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     loginTxt: {
-        fontSize: 19,
+        fontSize: 16,
         color: appConstant.themeSecondaryColor,
         fontWeight: "700"
     },

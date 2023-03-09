@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text,Linking, TouchableOpacity, View, Image } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, Linking, TouchableOpacity, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import appConstant from "config/constants";
 import fontsLoaded from "config/fonts";
@@ -11,6 +11,9 @@ import axios from "axios";
 import ModalMessage from "components/Modal/ModalMessage";
 import { useDispatch, useSelector } from 'react-redux';
 import { translate } from '../../languageFeature/index'
+import { Picker } from "@react-native-picker/picker";
+import { AntDesign } from '@expo/vector-icons';
+import { Pressable } from 'react-native';
 
 
 const SignInScreen = (props) => {
@@ -24,15 +27,22 @@ const SignInScreen = (props) => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [isError, setIsError] = React.useState("");
     // const { userType } = props.route.params;
+    const [selecteProfile, setSelectProfile] = React.useState(false);
+    const [selectProfileType, setselectProfileType] = React.useState('')
+    const ProfileType = ["Buyer", "Farmer"]
+
+    const goback = (t) => {
+        setselectProfileType(t)
+        setSelectProfile(false)
+        props.navigation.navigate("SignUp", { userType: t })
+    }
+
 
     React.useEffect(() => {
         mobile !== "" ? checkExistingUser() : setIsUser("");
     }, [mobile]);
 
-    //TODO: move existing function to sign up
-    /**
-     * Check existing user with phone number
-     */
+
     const checkExistingUser = () => {
         axios({
             method: 'post',
@@ -114,10 +124,6 @@ const SignInScreen = (props) => {
                 setIsError(error);
             });
     }
-
-    /**
-     * handling error modal
-     */
     const handleError = () => {
         setIsError("");
     }
@@ -158,13 +164,25 @@ const SignInScreen = (props) => {
                         <Button style={styles.loginBtn} title={translate(appLanguage, "Continue")} mode="contained" onPress={() => handleLoginBtn()} />
                     </View>
                     <View style={styles.formFooterWrapper}>
-                        <View style={styles.rowWrapper}>
-                            <Text style={styles.textItemFooter}>{`${translate(appLanguage, "By continuing you agree to")} `}
-                                <Text style={styles.textItemLink} onPress={() => Linking.openURL(appConstant.termUrl )}> {translate(appLanguage, "terms & conditions")}</Text>  {translate(appLanguage, "and")}
-                                <Text style={styles.textItemLink} onPress={ ()=> Linking.openURL(appConstant.privacyUrl ) }> {translate(appLanguage, "privacy policy")}</Text></Text>
-                        </View>
+                        <Text style={[styles.textItemFooter, styles.goBack]}>
+                            {translate(appLanguage, "Don't Have Account")} ?
+                            <Text style={[styles.textItemLink, styles.goBack]} onPress={() => setSelectProfile(true)}> {translate(appLanguage, "Regi")} </Text>
+                        </Text>
+
+                        <Text style={styles.textItemFooter}>{`${translate(appLanguage, "By continuing you agree to")} `}
+                            <Text style={styles.textItemLink} onPress={() => Linking.openURL(appConstant.termUrl)}> {translate(appLanguage, "terms & conditions")}</Text> {translate(appLanguage, "and")}
+                            <Text style={styles.textItemLink} onPress={() => Linking.openURL(appConstant.privacyUrl)}> {translate(appLanguage, "privacy policy")}</Text></Text>
                     </View>
                 </ScrollView>
+
+                {selecteProfile && <View style={styles.overlay}>
+                    <View style={styles.selectArea} >
+                        <Text style={styles.selectProfile} > {translate(appLanguage, "Select Profile")}</Text>
+                        {
+                            ProfileType.map((t, idx) => <Pressable onPress={() => goback(t)} key={`${idx}`} style={styles.box}><Text style={styles.selectFont} >{translate(appLanguage, t)}</Text></Pressable>)
+                        }
+                    </View>
+                </View>}
                 {isLoading && (<Loader visible={isLoading} />)}
                 {isError !== "" && (<ModalMessage visible={isError !== ""} handleClick={() => { setIsError("") }} error={true} errorMsg={isError} />)}
             </SafeAreaView>
@@ -176,6 +194,53 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
+    selectProfile: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: appConstant.themeSecondaryColor,
+        marginBottom: 20,
+        borderBottomColor: appConstant.themeSecondaryColor,
+        borderBottomWidth: 1
+    },
+    selectArea: {
+        backgroundColor: "#ffffff",
+        padding: 20,
+        width: 200,
+        height: 200,
+        borderRadius: 5,
+        display: 'flex',
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+
+    },
+    box: {
+        width: '100%',
+        marginBottom: 20
+    },
+    selectFont: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#fff",
+        textAlign: "center",
+        borderWidth: 1,
+        borderColor: "green",
+        padding: 10,
+        backgroundColor: "green",
+
+    },
+
+    overlay: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0,0,0, 0.5)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    },
     main: {
         flex: 1,
         backgroundColor: "#fff",
@@ -186,6 +251,30 @@ const styles = StyleSheet.create({
     },
     logoWrapper: {
         alignItems: 'flex-start',
+    }, pickerWrapper: {
+        margin: 20,
+        overflow: 'hidden',
+        backgroundColor: appConstant.themePrimaryLightColor,
+        borderRadius: 10,
+        padding: 0
+    },
+    pickerIcon: {
+        position: "absolute",
+        top: 13,
+        right: 12,
+        bottom: 0
+    },
+    picker: {
+
+    },
+    pickerItem: {
+        fontWeight: "700",
+    },
+    goBack: {
+        fontSize: 16,
+        color: appConstant.themeSecondaryColor,
+        fontWeight: "700",
+        marginBottom: 10
     },
     logo: {
         marginRight: 10,

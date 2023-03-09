@@ -32,7 +32,11 @@ const welcomeScreen = {
     "ASSOCIATED WITH":"सहयोग",
     "Govt. Sector":"सरकारी क्षेत्र",
     "Private Sector":"प्राइवेट सेक्टर",
-    "Supported by":"सहकार्यता : उद्यान विभाग (उत्तराखंड)"
+    "Supported by":"सहकार्यता : उद्यान विभाग (उत्तराखंड)",
+    "Don't Have Account":"खाता नहीं है",
+    "Regi":"रजिस्टर करें |",
+    "Select Profile":"प्रोफ़ाइल चुनें"
+
 }
 const bankScreen = {
     "Account Holder Name": "खाता धारक का नाम",

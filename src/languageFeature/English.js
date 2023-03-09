@@ -13,7 +13,7 @@ const welcomeScreen = {
     "Name": "Name",
     "Mobile Number": "Mobile Number",
     "Continue": "Continue",
-    "Have an account": "Have an account",
+    "Have an account": "Already have an account",
     "By continuing you agree to": "By continuing you agree to",
     "terms & conditions": "terms & conditions",
     "and": "and",
@@ -31,7 +31,10 @@ const welcomeScreen = {
     "ASSOCIATED WITH":"ASSOCIATED WITH",
     "Govt. Sector":"Govt. Sector",
     "Private Sector":"Private Sector",
-    "Supported by":"Supported by: Horticulture Dept. (UK)"
+    "Supported by":"Supported by: Horticulture Dept. (UK)",
+    "Don't Have Account":"Don't Have Account",
+    "Regi":"Register",
+    "Select Profile":"Select Profile"
 }
 const bankScreen = {
     "Account Holder Name": "Account Holder Name",

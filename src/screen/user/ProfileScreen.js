@@ -26,6 +26,7 @@ import { userType } from "slice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
 import { translate } from '../../languageFeature';
+import { Entypo } from '@expo/vector-icons'
 
 export default function ProfileScreen(props) {
 
@@ -52,10 +53,6 @@ export default function ProfileScreen(props) {
     const [city, setCity] = React.useState("");
     const [pin, setpin] = React.useState("");
     const [err, setError] = React.useState("");
-
-
-
-
 
     const handleError = () => {
         setIsError("");
@@ -92,10 +89,10 @@ export default function ProfileScreen(props) {
                 setApproved(result.is_approved ?? "");
                 setProfile(result.profile_photo_url ?? "");
                 setIsLoading(false);
-                setCountry(result?.country)
-                setCity(result?.city)
-                setState(result?.state)
-                setpin(result?.pin_code)
+                setCountry(result?.country ?? "")
+                setCity(result?.city ?? "")
+                setState(result?.state ?? "")
+                setpin(result?.pin_code ?? "")
             }
         } catch (error) {
             setIsLoading(false);
@@ -241,9 +238,6 @@ export default function ProfileScreen(props) {
         // props.navigation.navigate("Membership");
     }
 
-
-
-
     const handlePhoneNumber = (number) => {
         setError("")
         if (number?.includes(".") || number?.includes(",")) {
@@ -284,9 +278,11 @@ export default function ProfileScreen(props) {
                 }>
 
                 <View style={styles.imgWrapper}>
-                    <Pressable onPress={() => { setShowImageOptions(!showImageOptions) }}>
+                    <Pressable  style={{position:"relative"}} onPress={() => { setShowImageOptions(!showImageOptions) }}>
                         <Image source={{ uri: profile }} style={styles.profileImg} />
+                        <Entypo name='camera' style={styles.plus} color={appConstant.themeSecondaryColor} />
                     </Pressable>
+
                     {userdata?.role == "supplier" && (
                         <Pressable onPress={goToMembership} style={styles.memberBtn}>
                             <MaterialIcons name='stars' size={20} color={"#fff"} />
@@ -306,10 +302,11 @@ export default function ProfileScreen(props) {
                         value={primaryMobile}
                         dataDetectorTypes={"phoneNumber"}
                         keyboardType={"numeric"}
-                        disabled={true}
                         editable={false}
                         onChangeText={(t) => setPrimaryMobile(t)}
+
                     />
+
                     <TextInput
                         label={translate(appLanguage, "Alternative Mobile")}
                         value={alternateMobile}
@@ -317,33 +314,13 @@ export default function ProfileScreen(props) {
                         keyboardType={"numeric"}
                         onChangeText={handlePhoneNumber}
                     />
-                    <Text style={{ color: "red" }} >{err}</Text>
-
+                    {err && <Text style={{ color: "red" }} >{err}</Text>}
                     <TextInput
                         label={translate(appLanguage, "Email *")}
                         value={email}
                         onChangeText={(t) => setEmail(t)}
                     />
-                    {userdata?.role === "supplier" && (
-                        <>
-                            <TextInput
-                                label={translate(appLanguage, "Company Name *")}
-                                value={company}
-                                onChangeText={(t) => setCompany(t)}
-                            />
-                            <TextInput
-                                label={translate(appLanguage, "ID No")}
-                                value={IDNo}
-                                onChangeText={(t) => setIDNo(t)}
-                                editable={false}
-                            />
-                            <TextInput
-                                label={translate(appLanguage, "Approved")}
-                                value={approved === 1 ? "Yes" : "No"}
-                                disabled
-                            />
-                        </>
-                    )}
+
                     <TextInput
                         label={`${translate(appLanguage, "Country")} *`}
                         value={country}
@@ -379,7 +356,26 @@ export default function ProfileScreen(props) {
                         onChangeText={(t) => setpin(t)}
                     />
 
-
+                    {userdata?.role === "supplier" && (
+                        <>
+                            <TextInput
+                                label={translate(appLanguage, "Company Name *")}
+                                value={company}
+                                onChangeText={(t) => setCompany(t)}
+                            />
+                            <TextInput
+                                label={translate(appLanguage, "ID No")}
+                                value={IDNo}
+                                onChangeText={(t) => setIDNo(t)}
+                                editable={false}
+                            />
+                            <TextInput
+                                label={translate(appLanguage, "Approved")}
+                                value={approved === 1 ? "Yes" : "No"}
+                                disabled
+                            />
+                        </>
+                    )}
 
                     <MButton title={translate(appLanguage, "Save")} mode="contained" onPress={updateUserProfile} />
                 </View>
@@ -396,6 +392,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    plus: {
+        displayf: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 8,
+        borderColor: appConstant.themeSecondaryColor,
+        position:"absolute",
+        bottom:-23,
+        right:-10,
+        fontSize:35
+    },
+    edit: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: appConstant.themeSecondaryColor
+    },
+
     main: {
         flex: 1,
         backgroundColor: "transparent",
@@ -418,12 +432,13 @@ const styles = StyleSheet.create({
     imgWrapper: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20
+        marginTop: 20,
+        position:"relative"
     },
     profileImg: {
-        width: 70,
-        height: 70,
-        borderRadius: 50,
+        width: 100,
+        height: 100,
+        borderRadius: 60,
         borderWidth: 2,
         borderColor: appConstant.themeSecondaryColor
     },
@@ -443,7 +458,7 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingHorizontal: 10,
         borderRadius: 20,
-        marginTop: 5
+        marginTop: 20
     },
     memberBtnTxt: {
         color: "#fff",

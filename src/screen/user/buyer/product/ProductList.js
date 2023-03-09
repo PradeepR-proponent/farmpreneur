@@ -14,8 +14,12 @@ import { AntDesign } from "@expo/vector-icons";
 export default function ProductList({ navigation }) {
 
     const [products, setProducts] = React.useState([]);
+    const [filterProducts, setfilterProducts] = React.useState([]);
     const [categories, setCategories] = React.useState([]);
     const [selectedCategories, setSelectedCategories] = React.useState("All");
+
+
+
     const toast = useToast();
 
     function handleProductClick(id) {
@@ -38,9 +42,18 @@ export default function ProductList({ navigation }) {
     React.useEffect(() => {
         setProducts(data?.data);
         if (data?.data) {
-            setCategories(["All",...new Set(data?.data.map((p) => p.category_name))])
+            setCategories(["All", ...new Set(data?.data.map((p) => p.category_name))])
         }
     }, [data]);
+
+
+    React.useEffect(() => {
+        if (selectedCategories !== "All") {
+            setfilterProducts(products.filter((p) => p.category_name === selectedCategories))
+        }
+
+    }, [selectedCategories]);
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -64,33 +77,31 @@ export default function ProductList({ navigation }) {
             </View>
             <View style={styles.main}>
 
-                <FlatList
+                {selectedCategories === 'All' ? (<FlatList
                     keyExtractor={(item) => item.name}
                     data={products}
                     onRefresh={refetch}
                     refreshing={loading}
-                    renderItem={({ item }) => {
-                        if (selectedCategories === item.category_name) {
+                    renderItem={({ item }) => (
+                        <Item name={item?.name} description={item?.description} price={item?.price}
+                            image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
+                    )}
+                />) : (
+                    <FlatList
+                        keyExtractor={(item) => item.name}
+                        data={filterProducts}
+                        onRefresh={refetch}
+                        refreshing={loading}
+                        renderItem={({ item }) => {
                             return (
                                 <Item name={item?.name} description={item?.description} price={item?.price}
                                     image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
                             );
-                        } else return null
-                    }}
-                />
-                {selectedCategories === "All" && <FlatList
-                    keyExtractor={(item) => item.name}
-                    data={products}
-                    onRefresh={refetch}
-                    refreshing={loading}
-                    renderItem={({ item }) => {
-                        return (
-                            <Item name={item?.name} description={item?.description} price={item?.price}
-                                image={{ uri: item?.default_image?.image_url }} handleClick={() => { handleProductClick(item?.id) }} unit={item?.unit} />
-                        );
+                        }}
+                    />
 
-                    }}
-                />}
+                )}
+
             </View>
             {(loading || isFetching) && (<Loader visible={true} />)}
         </SafeAreaView>

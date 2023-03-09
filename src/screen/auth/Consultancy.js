@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useSelector } from "react-redux";
 import user from "../../assets/icon/DrHarsh.jpg";
+import appConstant from "../../config/constants";
 import { translate } from '../../languageFeature'
 
 
@@ -293,7 +294,7 @@ const styles = StyleSheet.create({
 
   textStyle: {
     fontSize: 16,
-    color: "green",
+    color: appConstant.themeSecondaryColor,
     fontWeight: "bold",
     marginBottom: 8,
   },

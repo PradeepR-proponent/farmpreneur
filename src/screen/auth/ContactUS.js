@@ -195,9 +195,9 @@ const styles = StyleSheet.create({
     height: 80,
   },
   mainHeadingStyle: {
-    color: "#519f2e",
+    color: appConstant.themeSecondaryColor,
     fontWeight: "700",
-    fontSize: 19,
+    fontSize: 18,
     marginTop: 10,
   },
   whiteText: {
